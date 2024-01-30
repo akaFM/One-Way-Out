@@ -1,6 +1,6 @@
 # "One Way Out" - A Text-Based RPG
 
- > Authors
+ > *Authors*
  > ----------
 >  [Avo Karamusyan](https://github.com/akaFM) - akara044
 > 
@@ -13,16 +13,16 @@
 
 ## Project Description
 
-> ### Why is this project important to us?
+> ### *Why is this project important to us?*
 > In our coursework up until this point, we've used coding solely for academic purposes. But we've perservered in using it because we are aware that it is an extremely valuable real-world skill and have been anticipating the creation of something more useful. Whether it is for designing webpages or constructing major entertainment titles, coding is used around the world for "real" purposes. "One Way Out" represents the first time that we will use our accumulated skills for something more practical- something that others, especially those who are entirely familiar with computer programming, can enjoy in the real world. This project gives us a chance to present our collective knowledge in the form of something almost everyone can enjoy- a simple computer game.
 >
-> ### What languages/tools/technologies will we use?
+> ### *What languages/tools/technologies will we use?*
 > "One Way Out" will be programmed entirely in C++, using Visual Studio Code for organization and GitHub for collaboration. It won't have a GUI, but will instead rely on user interaction through the console. Since the game is text-based, we have to put in quite a lot of extra effort for immersion purposes, so one of our big objectives is to push the limits of how detailed and interactive a console-based game can get. Since we are exclusively using C++, but still want to show off what we've learned so far, we'll be using a wide variety of techniques for the purpose of creating and maintaining diverse/practical code. Some of these techniques will include inheritance, polymorphism, 2D arrays, and a particular emphasis on object-oriented programming.
 >
-> ### What will the input/output of our program be?
+> ### *What will the input/output of our program be?*
 > As stated earlier, "One Way Out" will be a fully text-based RPG. **Input will be taken in the form of commands and specifications, typed out by the user in the console.** This input will be modified and analyzed with respect to the context of the user's current position in the game, so that we can calculate an adequate **text output through the console**. Text prompts will be detailed and tell the user exactly what to do, but without hindering the extent to which the game is challenging. In our text outputs, we aim to create an appropriate balance between immersion and fun, and in order to accomplish this, our prompts need to be well thought-out and tested (preferrably by people outside of the development team). It is possible that some factors of the game (such as the player's health points, attack power, etc) will be determined by a difficulty chosen by the user, which means that user input has a direct impact on how these factors are computed and displayed.
 >
-> ### What features will our program provide?
+> ### *What features will our program provide?*
 >  * A difficulty setting which allows for user input to directly influence computations made throughout the game (maybe speedrun mode?)
 >  * A detailed and thought-out storyline with immersive and informational text outputs
 >  * A "stats" system, in which the player can "level up" the character's HP, attack power, and more
@@ -33,14 +33,6 @@
 >  * An inventory system, entailing objects like keys, which allow for access to certain features/items/locations, and temporarily bar access from others. Also allows for consumables, which will have an effect on the stats system, and so on.
 >  * ...and all of the above will likely be very thoroughly bugtested by people outside of the development team, so that we can get a good idea of what is expected as far as input/output goes. We are expecting the project to be on a relatively large scale feature-wise, and since it is a fictional game, there is always room for more creativity. 
 
- > Your project description should summarize the project you are proposing. Be sure to include:
- > * Why is it important or interesting to you?
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- > * What will be the input/output of your project?
- > * What are the features that the project provides?
- > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
- > 
- > You also need to set up an empty project board using GitHub projects (board view with default columns). Make sure you add the board under your project repository. You should also have a Product Backlog and In testing columns added. All columns should be in the right order.
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
  > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column

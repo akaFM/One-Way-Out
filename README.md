@@ -1,6 +1,11 @@
-# One Way Out - A Text-Based RPG
+# "One Way Out" - A Text-Based RPG
 
- > Authors: [Avo Karamusyan](https://github.com/akaFM), [Vincent Tang](https://github.com/vtang020), [Andrew Pham](https://github.com/afCS100), [Benjamin Nguyen](https://github.com/Bnguy777)
+ > Authors
+ > ----------
+>  [Avo Karamusyan](https://github.com/akaFM) - akara044
+>  [Vincent Tang](https://github.com/vtang020) - vtang020
+>  [Andrew Pham](https://github.com/afCS100) - apham184
+>  [Benjamin Nguyen](https://github.com/Bnguy777) - bnguy280
 
 ## Project Description
 

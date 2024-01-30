@@ -21,7 +21,7 @@
 >  * An array of enemies, which will potentially behave differently altogether, and possibly be in randomized locations
 >  * A predetermined map with boundaries, maintained using a 2D array (map can potentially shift like a labyrinth, which would require some sort of algorithm)
 >  * A battling system (we don't know much about details, but there needs to be some sort of incentive for the player to stay alert)
->  * Objects like keys, which allow for access to certain features/items/locations, and temporarily bar access from others. 
+>  * An inventory system, entailing objects like keys, which allow for access to certain features/items/locations, and temporarily bar access from others. Also allows for consumables, which will have an effect on the stats system, and so on.
 >  * ...and all of the above will likely be very thoroughly bugtested by people outside of the development team, so that we can get a good idea of what is expected as far as input/output goes. We are expecting the project to be on a relatively large scale feature-wise, and since it is a fictional game, there is always room for more creativity. 
 
  > Your project description should summarize the project you are proposing. Be sure to include:

@@ -5,7 +5,7 @@
 ## Project Description
 
 > ### Why is this project important to us?
-> dsjkdajdjaljdskas
+> In our coursework up until this point, we've used coding solely for academic purposes. But we've perservered in using it because we are aware that it is an extremely valuable real-world skill and have been anticipating the creation of something more useful. Whether it is for designing webpages or constructing major entertainment titles, coding is used around the world for "real" purposes. "One Way Out" represents the first time that we will use our accumulated skills for something more practical- something that others can enjoy in the real world. 
 
  > Your project description should summarize the project you are proposing. Be sure to include:
  > * Why is it important or interesting to you?

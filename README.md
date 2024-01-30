@@ -3,9 +3,13 @@
  > Authors
  > ----------
 >  [Avo Karamusyan](https://github.com/akaFM) - akara044
+> 
 >  [Vincent Tang](https://github.com/vtang020) - vtang020
+> 
 >  [Andrew Pham](https://github.com/afCS100) - apham184
+> 
 >  [Benjamin Nguyen](https://github.com/Bnguy777) - bnguy280
+> 
 
 ## Project Description
 

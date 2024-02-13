@@ -1,4 +1,4 @@
-![image](https://github.com/cs100/final-project-akafm-vtang020-bnguy777-apham184-tpham108/assets/119368357/03fb51f0-d76f-455e-ab82-be094cd7f7de)# "One Way Out" - A Text-Based RPG
+# "One Way Out" - A Text-Based RPG
 
  > *Authors*
  > ----------

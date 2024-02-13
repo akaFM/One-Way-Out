@@ -1,4 +1,4 @@
-# "One Way Out" - A Text-Based RPG
+![image](https://github.com/cs100/final-project-akafm-vtang020-bnguy777-apham184-tpham108/assets/119368357/03fb51f0-d76f-455e-ab82-be094cd7f7de)# "One Way Out" - A Text-Based RPG
 
  > *Authors*
  > ----------
@@ -48,7 +48,10 @@
  > Our game consists of a series of simple text dialogue prompts displayed through the console. Specific screens, such as "inventory," must be accessed by inputting specific/corresponding keywords. This will be indicated to the user when the game begins. The general screen format, however, is viewable by default, when navigating through the in-game map, seen below.
 
 ### Navigation Diagram
-> Draw a diagram illustrating how the user can navigate from one screen to another. Here is an [example](https://creately.com/diagram/example/ikfqudv82/user-navigation-diagram-classic?r=v). It can be useful to label each symbol that represents a screen so that you can reference the screens in the next section or the rest of the document if necessary. Give a brief description of what the diagram represents.
+> Expectedly, our screen navigation diagram begins at the title screen, which is visible to the user upon running the executable. After that, all of the screen navigation in our game is directly dependent on how the player traverses through "rooms." Different rooms display different descriptions, but with the same format. The user navigates through rooms by inputting "north," "south," "east," or "west" in the user console, and furthermore, can interact with their belongings directly ("use blowtorch," etc).
+> * You can see the in-game map [here](https://media.discordapp.net/attachments/816244007143211048/1206807216745881601/IMG_8986.jpg?ex=65dd59cd&is=65cae4cd&hm=83f6f28548c494030fc3f1690f8aa1ca5aee4b90dd898915514782d6d6f63a85&=&format=webp&width=1266&height=1028), along with the general class definition for "room."
+> * You can see the navigation diagram [here](https://media.discordapp.net/attachments/816244007143211048/1206807216187777085/IMG_8994.jpg?ex=65dd59cd&is=65cae4cd&hm=aeae8987f52fd32f3cfed1aa35c2df502761a1411a7ac97d02903ecfdb18d3a1&=&format=webp&width=770&height=1028). Again, for non-general screens, the title screen is accessed immediately by default, and at any point thereafter, the "inventory" and "help" screens can be accessed using their respective keywords.
+> * We've also prepared [sample dialogue](https://docs.google.com/document/d/1negAwdTLN_husnAGGdx1TcFx4Szx91VtEncLmJR0cGs/edit?usp=sharing) for the first couple of rooms. We haven't had the time to sit down and write dialogue for every single room, but each room's initial output will follow the exact same prompt anyway- only the text will differ.
 
 ### Screen Layouts
 > There are only a few potential dialogue layouts throughout our entire project. All of them are displayed through the user console as simple text outputs- as stated earler, we do not have a GUI. However, these layouts differ slightly in format, as you can see below...

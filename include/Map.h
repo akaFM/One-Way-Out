@@ -6,12 +6,13 @@
 class Map {
 
     private:
-        Room * gameMap[5][4]; //fixed size
+        Room * gameMap[4][5]; //fixed size, four rows five columns
         Room * playerPosition; 
     public:
         Map();
         void initializeGameMap();
         Room * getPlayerPosition();
+        void moveDirection(const std::string direction);
 
 };
 

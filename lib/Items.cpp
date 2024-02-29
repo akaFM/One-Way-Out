@@ -3,6 +3,8 @@
 
 using namespace std; 
 
+//base class and will be used by Weapon, Consumables, and Key
+
 //constructors
     Items::Items() : name(""), description(""), type("")
     {}

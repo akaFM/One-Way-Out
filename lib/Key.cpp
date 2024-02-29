@@ -3,6 +3,8 @@
 
 using namespace std; 
 
+//key condition will either be Great, good, alright, bad, broken -> depending on condition it can work or not
+
 //constructors
     Key::Key() : condition("Great condition. Key Works!")
     {}

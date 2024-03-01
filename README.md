@@ -83,13 +83,8 @@
 > * We used the **Liskov Substitution Principle** and the **Open/Closed Principle** by appropriating the relation between the Item class and it's subclasses such that, first and foremost, any class that utilizes the "Item" class (whether it is as a function parameter, member variable, etc) can reliably use it's subclasses instead without any issue, and second, we will be able to add new "Item" subclasses without having to modify anything else (since the parent class contains all necessary/generic attributes). We made this relationship and it's specifications clear by indicating an "inheritance" relationship AND ensuring that each subclass contains it's own particular function/variable extension(s) in our most updated version of the class diagram.
 >
 > * We also used the **Liskov Substitution Principle** in our class diagram by clarifying that, in functions which utilize "Item" as a paremeter, subclasses for "Item" can be used in the same way. This is something that is more-so proven in the actual implementation of the code rather than a class-diagram documentation, but we included it in the parameter space for functions like "useItem" or "hasItem" to elaborate on the fact that the "item" parameter in question does not actually have to be of the base class.
- 
-> During the meeting with your reader you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
-
+>
+> * And finally, we used the **Dependency Inversion Principle** in our class diagram by implementing the functions "printRoomName" and "printRoomDescription" as members of the "Map" class. Initially, the "CommandParser" class was expected to call the member functions of the "Room" class (a lower-level module) in order to indicate, in dialogue, the name and description of the user's current position. However, this task was allocated to the Map class such that the CommandParser class no longer has to access anything relating to the Room class at all. This change is a part of the **Dependency Inversion Principle** because it, by nature, relies on the abstraction of the Map class in order to relay appropriate information to the highest-level module. Before, the CommandParser class would have to call the "getName" function of Room and print it, but all of that is automatically completed now by simply calling "printRoomName" in the Map class.
  
  > ## Final deliverable
  > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 

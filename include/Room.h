@@ -16,6 +16,8 @@ class Room {
         Room * roomToEast;
         Room * roomToWest;
 
+        //todo: room inventory
+
     public:
 
         Room();
@@ -24,11 +26,20 @@ class Room {
         const std::string getName() const;
         const std::string getDescription() const;
         const bool isLocked() const;
+        void setLocked(const bool);
 
-        Room * getRoomToNorth();
-        Room * getRoomToSouth();
-        Room * getRoomToEast();
-        Room * getRoomToWest();
+        Room * getNorthRoom();
+        Room * getSouthRoom();
+        Room * getEastRoom();
+        Room * getWestRoom();
+
+        void setNorthRoom(Room *);
+        void setSouthRoom(Room *);
+        void setEastRoom(Room *);
+        void setWestRoom(Room *);
+
+        //todo: room inventory
+
 
 };
 

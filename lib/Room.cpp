@@ -33,22 +33,40 @@ const bool Room::isLocked() const{
     return this->locked;
 }
 
+void Room::setLocked(const bool status){
+    this->locked = status;
+}
 
-//these are getters for the directional pointers. i chose to encapsulate them because
-//it felt more neat that way.
+// getters and setters for directional pointers
 
-Room * Room::getRoomToNorth(){
+Room * Room::getNorthRoom(){
     return this->roomToNorth;
 }
 
-Room * Room::getRoomToSouth(){
+Room * Room::getSouthRoom(){
     return this->roomToSouth;
 }
 
-Room * Room::getRoomToEast(){
+Room * Room::getEastRoom(){
     return this->roomToEast;
 }
 
-Room * Room::getRoomToWest(){
+Room * Room::getWestRoom(){
     return this->roomToWest;
+}
+
+void Room::setNorthRoom(Room * newNorthRoom){
+    this->roomToNorth = newNorthRoom;
+}
+
+void Room::setSouthRoom(Room * newSouthRoom){
+    this->roomToSouth = newSouthRoom;
+}
+
+void Room::setEastRoom(Room * newEastRoom){
+    this->roomToEast = newEastRoom;
+}
+
+void Room::setWestRoom(Room * newWestRoom){
+    this->roomToWest = newWestRoom;
 }

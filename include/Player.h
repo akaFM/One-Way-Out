@@ -1,5 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
+#include ../include/Items.h
 #include <vector>
 using namespace std;
 
@@ -15,12 +16,12 @@ class Player {
         void setHealth(int hp);
         void deductHealth(int hp);
 
-        //Steps ATtributes
+        //Steps Attributes
         int getSteps();
         void deductSteps(int step);
 
         //Inventory Attributes
-        boolean hasItem(Item i);
-        void dropItem(Item i);
-        void giveItem(Item i);
+        bool hasItem(Item item);
+        void deductItem(Item item);
+        void giveItem(Item item);
 }

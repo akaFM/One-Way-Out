@@ -68,6 +68,7 @@
  
 ## Phase III
 
+### Class Diagram Updates
 > * **Version 1:** [This](https://media.discordapp.net/attachments/816244007143211048/1206824013544955964/IMG_8995.jpg?ex=65efde72&is=65dd6972&hm=115637ad7ed64f67449a7b43790e16a7f2a6ea224a570fdf7f1db14ae580d48f&=&format=webp&width=935&height=701) is what the class diagram looked like at our first stand-up meeting. This was before we implemented TA feedback or FIRST principles.
 > * **Version 2:** [This](https://media.discordapp.net/attachments/816244007143211048/1213195941729796126/image.png?ex=65f497c4&is=65e222c4&hm=4b43b46f1c25edc57eb15cd2ce7408cbb513699509478b37aaf9e4a740b483e1&=&format=webp&quality=lossless&width=1126&height=701) is what the class diagram looked like after our first TA check-in. We changed the relation between Item and Room, Item and Player, and the relation between Item and it's derived classes. Additionally, we corrected the encapsulation of member variables in the Player and Room classes.
 > * **Current Version:** [This](https://lucid.app/lucidchart/708b8760-c6d6-4327-a22b-1754ad9b0a1a/edit?invitationId=inv_72c36e7f-0915-400c-95f5-90b72f1e12d4&page=0_0#) is how our current class diagram looks. It is also reflected in the "Phase II" section above.

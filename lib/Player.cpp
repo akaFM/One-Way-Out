@@ -1,4 +1,5 @@
 #include "../include/Player.h"
+#include <stdexcept>
 using namespace std;
 
 Player::Player(int difficulty){
@@ -18,7 +19,7 @@ Player::Player(int difficulty){
 
     // invalid difficulty
     else {
-        throw std::invalid_argument("Invalid difficulty");
+        throw invalid_argument("Invalid difficulty");
     }
 }
 
@@ -42,7 +43,7 @@ void Player::deductSteps(int step) {
     stepsRemaining = stepsRemaining - step;
 }
 
-boolean Player::hasItem(Item item) {
+bool Player::hasItem(Item item) {
     bool ownership;
     for (unsigned int j = 0; j < inventory.size(); ++j) {
         if (item == inventory.at(j)) {
@@ -54,7 +55,7 @@ boolean Player::hasItem(Item item) {
     return ownership;
 }
 
-void Player::dropItem(Item item) {
+void Player::deductItem(Item item) {
     int itemIndex = 0;
     for (unsigned int j = 0; j < inventory.size(); ++j) {
         if (item == inventory.at(j)) {
@@ -62,7 +63,7 @@ void Player::dropItem(Item item) {
             // room vect.pushback(i)
             itemIndex = j;
             // remove item from player inventory
-            if (dropIndex < inventory.size()) {
+            if (itemIndex < inventory.size()) {
                 inventory.erase(inventory.begin() + j);
             }
         }

@@ -69,24 +69,18 @@
 ## Phase III
 
 ### Class Diagram Updates
+>
+> Here is the update history for our class diagram...
+>
 > * **Version 1:** [This](https://media.discordapp.net/attachments/816244007143211048/1206824013544955964/IMG_8995.jpg?ex=65efde72&is=65dd6972&hm=115637ad7ed64f67449a7b43790e16a7f2a6ea224a570fdf7f1db14ae580d48f&=&format=webp&width=935&height=701) is what the class diagram looked like at our first stand-up meeting. This was before we implemented TA feedback or FIRST principles.
 > * **Version 2:** [This](https://media.discordapp.net/attachments/816244007143211048/1213195941729796126/image.png?ex=65f497c4&is=65e222c4&hm=4b43b46f1c25edc57eb15cd2ce7408cbb513699509478b37aaf9e4a740b483e1&=&format=webp&quality=lossless&width=1126&height=701) is what the class diagram looked like after our first TA check-in. We changed the relation between Item and Room, Item and Player, and the relation between Item and it's derived classes. Additionally, we corrected the encapsulation of member variables in the Player and Room classes.
 > * **Current Version:** [This](https://lucid.app/lucidchart/708b8760-c6d6-4327-a22b-1754ad9b0a1a/edit?invitationId=inv_72c36e7f-0915-400c-95f5-90b72f1e12d4&page=0_0#) is how our current class diagram looks. It is also reflected in the "Phase II" section above.
 >
 > We used SOLID design principles in the following specific ways...
-
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
- 
- > BEFORE the meeting you should do the following:
- > * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
- > * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
- >   * A new class diagram incorporating your changes after considering the SOLID principles.
- >   * For each update in your class diagram, you must explain in 3-4 sentences:
- >     * What SOLID principle(s) did you apply?
- >     * How did you apply it? i.e. describe the change.
- >     * How did this change help you write better code?
- > * Perform a new sprint plan like you did in Phase II.
- > * You should also make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
+>
+> * We used the **Single-Responsibility Principle** by encapsulating the member variables of the "Room" class, such as "north," "south," "east," and "west." Via encapsulation, we ensure that the "Room" class is singularly responsible for the control of these variables and not just the storing of them. It can also be argued that this encapsulation exemplifies the **"Open/Closed Principle"**, too, since we are constructing the class such that "getting" one of the directional pointers is open to modification. In another function, we will check if the room actually CAN be entered, but if we implement getters for the directional pointer, we can actually verify that logic IN the getter.
+>
+> * We used the **Liskov Substitution Principle** and the **Open/Closed Principle** by appropriating the relation between the Item class and it's subclasses such that, first and foremost, any class that utilizes the "Item" class (whether it is as a function parameter, member variable, etc) can reliably use it's subclasses instead without any issue, and second, we will be able to add new "Item" subclasses without having to modify anything else (since the parent class contains all necessary/generic attributes). We made this relationship and it's specifications clear in our most updated version of the class diagram.
  
 > During the meeting with your reader you will discuss: 
  > * How effective your last sprint was (each member should talk about what they did)

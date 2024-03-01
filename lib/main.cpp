@@ -4,22 +4,7 @@
 #include <iostream>
 
 int main() {
-
-
-    Map m;
-    m.printCurrentRoomDescription();
-    m.moveDirection("north");
-    m.printCurrentRoomDescription();
-    m.moveDirection("west");
-    m.printCurrentRoomDescription();
-    m.moveDirection("west");
-    m.printCurrentRoomDescription();
-    m.moveDirection("west");
-    m.printCurrentRoomDescription();
-    m.moveDirection("north");
-    m.printCurrentRoomDescription();
     
-
     // TODO: Intro Screen
     // Give title of game, authors, and prompt user for difficulty.
 
@@ -32,6 +17,5 @@ int main() {
     // c.runGame();
 
     return 0;
-
 }
 

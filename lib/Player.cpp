@@ -42,10 +42,10 @@ void Player::deductSteps(int step) {
     stepsRemaining = stepsRemaining - step;
 }
 
-boolean Player::hasItem(Item i) {
+boolean Player::hasItem(Item item) {
     bool ownership;
     for (unsigned int j = 0; j < inventory.size(); ++j) {
-        if (j == inventory.at(i)) {
+        if (item == inventory.at(j)) {
             ownership = true;
             break;
         }
@@ -54,13 +54,13 @@ boolean Player::hasItem(Item i) {
     return ownership;
 }
 
-void Player::dropItem(Item i) {
-    int dropIndex = 0;
+void Player::dropItem(Item item) {
+    int itemIndex = 0;
     for (unsigned int j = 0; j < inventory.size(); ++j) {
-        if (i == inventory.at(j)) {
+        if (item == inventory.at(j)) {
             // drop item in the room player is currently in
             // room vect.pushback(i)
-            dropIndex = j;
+            itemIndex = j;
             // remove item from player inventory
             if (dropIndex < inventory.size()) {
                 inventory.erase(inventory.begin() + j);
@@ -69,9 +69,11 @@ void Player::dropItem(Item i) {
     }
 }
 
-void Player::giveItem(Item i) {
+void Player::giveItem(Item item) {
      for (unsigned int j = 0; j < inventory.size(); ++j) {
         //search for item index
+        //give item
+        //remove item from player inventory
+        break;
      }
-     // give item
 }

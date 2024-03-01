@@ -13,6 +13,8 @@ class Map {
         void initializeGameMap();
         Room * getPlayerPosition();
         void moveDirection(const std::string direction);
+        void printCurrentRoomDescription();
+        void printCurrentRoomName();
 
 };
 

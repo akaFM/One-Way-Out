@@ -98,6 +98,7 @@ Room* Map::getPlayerPosition(){
 
 void Map::moveDirection(const std::string direction){
 
+
     Room * tempRoomPointer = nullptr;
 
     if(direction == "north"){tempRoomPointer = playerPosition->getNorthRoom();}
@@ -122,4 +123,12 @@ void Map::moveDirection(const std::string direction){
 
     // note: tempRoomPointer ceases to exist upon function exit, but whatever is is pointing to will NOT be deleted. 
 
+}
+
+void Map::printCurrentRoomDescription(){
+    std::cout << playerPosition->getDescription() << std::endl;
+}
+
+void Map::printCurrentRoomName(){
+    std::cout << playerPosition->getName() << std::endl;
 }

@@ -5,6 +5,21 @@
 
 int main() {
 
+
+    Map m;
+    m.printCurrentRoomDescription();
+    m.moveDirection("north");
+    m.printCurrentRoomDescription();
+    m.moveDirection("west");
+    m.printCurrentRoomDescription();
+    m.moveDirection("west");
+    m.printCurrentRoomDescription();
+    m.moveDirection("west");
+    m.printCurrentRoomDescription();
+    m.moveDirection("north");
+    m.printCurrentRoomDescription();
+    
+
     // TODO: Intro Screen
     // Give title of game, authors, and prompt user for difficulty.
 

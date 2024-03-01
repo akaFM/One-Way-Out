@@ -18,7 +18,7 @@ Player::Player(int difficulty){
 
     // invalid difficulty
     else {
-        exit 1;
+        throw std::invalid_argument("Invalid difficulty");
     }
 }
 

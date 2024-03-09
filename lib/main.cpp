@@ -103,7 +103,7 @@ void CommandParser::executeCommand(string command, string parameter) {
 }
 
 int main() {
-
+    
     // TODO: Intro Screen
     // Give title of game, authors, and prompt user for difficulty.
     cout << "Welcome to One Way Out!" << std::endl;
@@ -128,6 +128,5 @@ int main() {
     c.runGame();
 
     return 0;
-
 }
 

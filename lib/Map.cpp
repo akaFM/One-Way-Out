@@ -105,19 +105,19 @@ void Map::moveDirection(const std::string direction){
     else if(direction == "east"){tempRoomPointer = playerPosition->getEastRoom();}
     else if(direction == "west"){tempRoomPointer = playerPosition->getWestRoom();}
     else{
-        std::cout << "Invalid direction.\n" << std::endl;
+        std::cout << "\nInvalid direction.\n" << std::endl;
         return; // this would only happen if commandParser calls moveDirection incorrectly
     }
 
     if(tempRoomPointer != nullptr){ // if the requested room exists
             if(tempRoomPointer->isLocked()){ // if the requested room exists, but is locked
-                std::cout << "That room is locked!\n" << std::endl;
+                std::cout << "\nThat room is locked!\n" << std::endl;
             } else { // if the requested room exists, and is unlocked -> SUCCESS CASE
                 playerPosition = tempRoomPointer;
-                std::cout << "You moved " << direction << ".\n" << std::endl;
+                std::cout << "\nYou moved " << direction << ".\n" << std::endl;
             }
     } else { // if the requested room does not exist
-        std::cout << "You cannot go that way!\n" << std::endl;
+        std::cout << "\nYou cannot go that way!\n" << std::endl;
     }
 
     // note: tempRoomPointer ceases to exist upon function exit, but whatever is is pointing to will NOT be deleted. 

@@ -77,9 +77,8 @@ void CommandParser::executeCommand(string command, string parameter) {
         cout << "Using item: " << parameter << " (Item class)" << endl;
     } 
     else if (command == "go") {
-        // call moveDirection command in Map class
+        // call moveDirection command in Map class.
         map->moveDirection(parameter);
-        cout << "Moving " << parameter << "." << endl;
     } 
     else if (command == "help") {
         //help();
@@ -137,6 +136,6 @@ int main() {
     c.runGame();
 
     return 0;
-    
+
 }
 

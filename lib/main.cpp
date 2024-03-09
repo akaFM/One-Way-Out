@@ -25,7 +25,7 @@ class CommandParser {
 public:
     CommandParser(Map*, Player*);
     void runGame();
-    string getFirstWord(string input);
+    string getFirstWord(const string& userInput);
     string getRestOfWord(string input);
     void executeCommand(string m , string p);
     void help();
@@ -70,6 +70,7 @@ string CommandParser::getFirstWord(const string& userInput) {
     }
     else {
         return "";
+    }
 }
 
 string CommandParser::getRestOfWord(const string& userInput) {

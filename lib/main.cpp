@@ -2,6 +2,8 @@
 #include "../include/Room.h"
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <utility>
 using namespace std;
 
 class Player {
@@ -18,8 +20,7 @@ class CommandParser {
 public:
     CommandParser(Map*, Player*);
     void runGame();
-    string getFirstWord(const string& userInput);
-    string getRestOfWord(const string& input);
+    void assignCommandAndParameter(const string& uInput, string& command, string& param);
     void executeCommand(string m , string p);
     void help();
 
@@ -39,8 +40,8 @@ void CommandParser::runGame() {
             break; 
         }
         if (userInput.size() > 0 && userInput.size() < 25) {
-            string command = getFirstWord(userInput);
-            string parameter = getRestOfWord(userInput);
+            string command, parameter;
+            assignCommandAndParameter(userInput, command, parameter);
             executeCommand(command, parameter);
         } else {
             cout << "Invalid input. Please enter a valid command." << endl;
@@ -48,37 +49,28 @@ void CommandParser::runGame() {
     }
 }
 
-string CommandParser::getFirstWord(const string& userInput) {
-    size_t usePos = userInput.find("use");
-    size_t lookPos = userInput.find("look");
-    size_t goPos = userInput.find("go");
-    if (usePos != string::npos) { 
-        return "use";
-    } 
-    else if (lookPos != string::npos) { 
-        return "look";
-    } 
-    else if (goPos != string::npos) { 
-        return "go";
-    }
-    else {
-        return "";
-    }
-}
+void CommandParser::assignCommandAndParameter(const string& uInput, string& command, string& param){
 
-string CommandParser::getRestOfWord(const string& userInput) {
-    string parameter = getFirstWord(userInput);
-    if (!parameter.empty()) {
-        size_t pos = userInput.find(parameter);
-        return userInput.substr(pos + parameter.length());
-    } else {
-        return userInput;
+    size_t firstWhitespacePosition = uInput.find(" ");
+    
+    //case: the entire input has no spaces, meaning it's all one word
+    if(firstWhitespacePosition == string::npos){ //sidenote: npos is a flag that says a given char wasn't found
+        command = uInput;
+        param = "";
+        return;
     }
+
+    //case: there is a space, meaning two words. seperate and assign the two words.
+    command = uInput.substr(0, firstWhitespacePosition);
+    param = uInput.substr(firstWhitespacePosition + 1);
+    return;
+
 }
 
 void CommandParser::executeCommand(string command, string parameter) {
     if (command == "look") {
-        cout << "Looking around the room..." << endl;
+        //cout << "Looking around the room..." << endl;
+        map->printCurrentRoomName();
     } 
     else if (command == "use") {
         // call use command in Item class
@@ -86,7 +78,8 @@ void CommandParser::executeCommand(string command, string parameter) {
     } 
     else if (command == "go") {
         // call moveDirection command in Map class
-        cout << "Heading to another location..." << endl;
+        map->moveDirection(parameter);
+        cout << "Moving " << parameter << "." << endl;
     } 
     else if (command == "help") {
         //help();
@@ -103,20 +96,22 @@ int main() {
     cout << "Welcome to One Way Out!" << std::endl;
     cout << "Authors: Avo Karamusyan, Vincent Tang, Andrew Pham, Benjamin Nguyen and Thien Pham" << std::endl;
     cout << "Select difficulty (1 for easy, 2 for hard): ";
+
     // int difficulty = user input for difficulty (1 for easy, 2 for hard)
-      int difficulty;
-      cin >> difficulty;
-    // Map m; --> This initializes the full map and all of its rooms.
+    int difficulty;
+    cin >> difficulty;
+    cin.ignore(); // moves the buffer past newline for when commandParser runGame() is invoked
+
+    // This initializes the full map and all of its rooms.
     Map m;
-    //Comment: m.initializeMap(string)
+
     // Player p(int difficulty); --> In the player class, attributes "health" and "stepsRemaining" will be determined by the passed-in difficulty (see UML diagram).
     Player p(difficulty);
+
     // CommandParser c(m, p); --> This initializes the commandParser, which will be called to begin the user input loop and seperate input strings as commands.
+    // The "map" and "player" passed into the CommandParser constructor are stored as attributes in CommandParser since they need to be accessed continuously.
     CommandParser c(&m, &p);
 
-    // The "map" and "player" passed into the CommandParser constructor are stored as attributes in CommandParser since they need to be accessed continuously.
-
-    // c.runGame();
     c.runGame();
 
     return 0;

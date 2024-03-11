@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include ../include/Items.h
+#include "../include/Items.h"
+#include "../include/Room.h"
 #include <vector>
 using namespace std;
 

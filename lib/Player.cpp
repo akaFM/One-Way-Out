@@ -1,4 +1,6 @@
 #include "../include/Player.h"
+#include "../include/Room.h"
+#include "../include/Item.h"
 #include <stdexcept>
 using namespace std;
 
@@ -55,26 +57,32 @@ bool Player::hasItem(Item item) {
     return ownership;
 }
 
-void Player::deductItem(Item item) {
-    int itemIndex = 0;
+void Player::deductItem(Item item, Room* currRoom) {
+    size_t itemIndex = 0;
     for (unsigned int j = 0; j < inventory.size(); ++j) {
         if (item == inventory.at(j)) {
             // drop item in the room player is currently in
+            currRoom.addItem(item);
             // room vect.pushback(i)
             itemIndex = j;
             // remove item from player inventory
             if (itemIndex < inventory.size()) {
                 inventory.erase(inventory.begin() + j);
+                break;
             }
         }
     }
 }
 
 void Player::giveItem(Item item) {
+    size_t itemIndex = 0;
      for (unsigned int j = 0; j < inventory.size(); ++j) {
         //search for item index
         //give item
         //remove item from player inventory
+        if (itemIndex < inventory.size()) {
+            inventory.erase(inventory.begin() + j);
         break;
-     }
+        }
+    }
 }

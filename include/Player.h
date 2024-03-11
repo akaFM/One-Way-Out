@@ -22,6 +22,6 @@ class Player {
 
         //Inventory Attributes
         bool hasItem(Item item);
-        void deductItem(Item item);
+        void deductItem(Item item, room* Room);
         void giveItem(Item item);
 }

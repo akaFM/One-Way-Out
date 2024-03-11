@@ -42,7 +42,7 @@
 
 ### Navigation Diagram
 > Expectedly, our screen navigation diagram begins at the title screen, which is visible to the user upon running the executable. After that, all of the screen navigation in our game is directly dependent on how the player traverses through "rooms." Different rooms display different descriptions, but with the same format. The user navigates through rooms by inputting "north," "south," "east," or "west" in the user console, and furthermore, can interact with their belongings directly ("use blowtorch," etc).
-> * You can see the in-game map [here](https://media.discordapp.net/attachments/816244007143211048/1206807216745881601/IMG_8986.jpg?ex=65dd59cd&is=65cae4cd&hm=83f6f28548c494030fc3f1690f8aa1ca5aee4b90dd898915514782d6d6f63a85&=&format=webp&width=1266&height=1028), along with the general class definition for "room."
+> * You can see the in-game map [here](https://media.discordapp.net/attachments/816244007143211048/1206807216745881601/IMG_8986.jpg?ex=65efcecd&is=65dd59cd&hm=1f2a16b237583dbda2208c7cf9b4b174edbb45b5602e1a95cb49fccde3b83203&=&format=webp&width=863&height=701), along with the general class definition for "room."
 > * You can see the navigation diagram [here](https://media.discordapp.net/attachments/816244007143211048/1210019208025612339/IMG_9166.jpg?ex=65e90934&is=65d69434&hm=191edbfad1dc87de243fd5bab5dacdd0b981289063d75372ad20e8de346516a0&=&format=webp&width=526&height=701). Again, for non-general screens, the title screen is accessed immediately by default, and at any point thereafter, the "inventory" and "help" screens can be accessed using their respective keywords.
 > * We've also prepared [sample dialogue](https://docs.google.com/document/d/1negAwdTLN_husnAGGdx1TcFx4Szx91VtEncLmJR0cGs/edit?usp=sharing) for the first couple of rooms. We haven't had the time to sit down and write dialogue for every single room, but each room's initial output will follow the exact same prompt anyway- only the text will differ.
 
@@ -66,26 +66,25 @@
 > ** This was completed on a whiteboard because the factors of each class are really fluid- we don't really know what we'll have to shift around later in the project. We will convert it to a more sustainable file when we have a clearer idea of how it will all come together.
 > ** We will most likely prioritize finishing CommandParser and map initialization first. After that, we will begin building the actual puzzles (using items in specific rooms, etc).
  
- > ## Phase III
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
- 
- > BEFORE the meeting you should do the following:
- > * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
- > * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
- >   * A new class diagram incorporating your changes after considering the SOLID principles.
- >   * For each update in your class diagram, you must explain in 3-4 sentences:
- >     * What SOLID principle(s) did you apply?
- >     * How did you apply it? i.e. describe the change.
- >     * How did this change help you write better code?
- > * Perform a new sprint plan like you did in Phase II.
- > * You should also make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
- 
-> During the meeting with your reader you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
+## Phase III
 
+### Class Diagram Updates
+>
+> Here is the update history for our class diagram...
+>
+> * **Version 1:** [This](https://media.discordapp.net/attachments/816244007143211048/1206824013544955964/IMG_8995.jpg?ex=65efde72&is=65dd6972&hm=115637ad7ed64f67449a7b43790e16a7f2a6ea224a570fdf7f1db14ae580d48f&=&format=webp&width=935&height=701) is what the class diagram looked like at our first stand-up meeting. This was before we implemented TA feedback or FIRST principles.
+> * **Version 2:** [This](https://media.discordapp.net/attachments/816244007143211048/1213195941729796126/image.png?ex=65f497c4&is=65e222c4&hm=4b43b46f1c25edc57eb15cd2ce7408cbb513699509478b37aaf9e4a740b483e1&=&format=webp&quality=lossless&width=1126&height=701) is what the class diagram looked like after our first TA check-in. We changed the relation between Item and Room, Item and Player, and the relation between Item and it's derived classes. Additionally, we corrected the encapsulation of member variables in the Player and Room classes.
+> * **Current Version:** [This](https://lucid.app/lucidchart/708b8760-c6d6-4327-a22b-1754ad9b0a1a/edit?invitationId=inv_72c36e7f-0915-400c-95f5-90b72f1e12d4&page=0_0#) is how our current class diagram looks. It is also reflected in the "Phase II" section above.
+>
+> We used SOLID design principles in the following specific ways...
+>
+> * We used the **Single-Responsibility Principle** by encapsulating the member variables of the "Room" class, such as "north," "south," "east," and "west." Via encapsulation, we ensure that the "Room" class is singularly responsible for the control of these variables and not just the storing of them. It can also be argued that this encapsulation exemplifies the **"Open/Closed Principle"**, too, since we are constructing the class such that "getting" one of the directional pointers is open to modification. In another function, we will check if the room actually CAN be entered, but if we implement getters for the directional pointer, we can actually verify that logic IN the getter.
+>
+> * We used the **Liskov Substitution Principle** and the **Open/Closed Principle** by appropriating the relation between the Item class and it's subclasses such that, first and foremost, any class that utilizes the "Item" class (whether it is as a function parameter, member variable, etc) can reliably use it's subclasses instead without any issue, and second, we will be able to add new "Item" subclasses without having to modify anything else (since the parent class contains all necessary/generic attributes). We made this relationship and it's specifications clear by indicating an "inheritance" relationship AND ensuring that each subclass contains it's own particular function/variable extension(s) in our most updated version of the class diagram.
+>
+> * We also used the **Liskov Substitution Principle** in our class diagram by clarifying that, in functions which utilize "Item" as a paremeter, subclasses for "Item" can be used in the same way. This is something that is more-so proven in the actual implementation of the code rather than a class-diagram documentation, but we included it in the parameter space for functions like "useItem" or "hasItem" to elaborate on the fact that the "item" parameter in question does not actually have to be of the base class.
+>
+> * And finally, we used the **Dependency Inversion Principle** in our class diagram by implementing the functions "printRoomName" and "printRoomDescription" as members of the "Map" class. Initially, the "CommandParser" class was expected to call the member functions of the "Room" class (a lower-level module) in order to indicate, in dialogue, the name and description of the user's current position. However, this task was allocated to the Map class such that the CommandParser class no longer has to access anything relating to the Room class at all. This change is a part of the **Dependency Inversion Principle** because it, by nature, relies on the abstraction of the Map class in order to relay appropriate information to the highest-level module. Before, the CommandParser class would have to call the "getName" function of Room and print it, but all of that is automatically completed now by simply calling "printRoomName" in the Map class.
  
  > ## Final deliverable
  > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 

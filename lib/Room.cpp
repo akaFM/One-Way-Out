@@ -102,4 +102,5 @@ void Room::removeItemFromRoom(const string itemName){
 
 void Room::addItemToRoom(Items item){
     roomInventory.push_back(item);
+    cout << "\n You dropped the " << item.getName() << "." << endl;
 }

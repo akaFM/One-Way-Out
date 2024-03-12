@@ -38,6 +38,8 @@ class Room {
         void setEastRoom(Room *);
         void setWestRoom(Room *);
 
+        bool itemInRoom();
+
         //todo: room inventory
 
 

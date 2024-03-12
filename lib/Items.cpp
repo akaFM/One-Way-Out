@@ -26,3 +26,5 @@ using namespace std;
     string Items::getDescription(){ return description; }
 
     string Items::getType(){ return type; } 
+
+    bool Items::itemExists(){ return name!= ""; }

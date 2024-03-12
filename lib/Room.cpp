@@ -1,5 +1,6 @@
 #include "../include/Map.h"
 #include "../include/Room.h"
+#include "../include/Item.h"
 #include <string>
 
 Room::Room(){
@@ -69,4 +70,9 @@ void Room::setEastRoom(Room * newEastRoom){
 
 void Room::setWestRoom(Room * newWestRoom){
     this->roomToWest = newWestRoom;
+}
+
+bool Room::itemInRoom(){ 
+    Item a;
+    return a.itemExists(); 
 }

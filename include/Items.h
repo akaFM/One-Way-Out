@@ -11,27 +11,26 @@ class Items {
     private:
         string name;
         string description;
-        string type; 
-
+        int type;  //0 means nothing 1 is consumable 2 is weapon 3 is for a key
+                   // 1st constructor will randomly assign 0-3 into type so 
+                   //what you get is randomized 
     public:
     
     //constructors
-        Items() : name(""), description(""), type("")
-        {}
-        Items(string n, string d, string t) : name(n), description(d), type(t)
-        {}
-
+        Items();
+        Items(string n, string d, int t);
     //setter functions
         void setName(string n);
         void setDescription(string d);
-        void setType(string t);
+        void setType(int t);
 
     //getter functions
         string getName();
         string getDescription();
-        string getType(); 
+        int getType(); 
 
         bool itemExists();
+        void deleteItem();
 
 };
 

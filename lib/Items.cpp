@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <cstdlib>
 #include "../include/Items.h"
 
 using namespace std; 
@@ -7,10 +8,12 @@ using namespace std;
 //base class and will be used by Weapon, Consumables, and Key
 
 //constructors
-    Items::Items() : name(""), description(""), type("")
-    {}
+    Items::Items() : name(""), description("")
+    {
+        type = rand() % 3;
+    }
 
-    Items::Items(string n, string d, string t) : name(n), description(d), type(t)
+    Items::Items(string n, string d, int t) : name(n), description(d), type(t)
     {}
 
 //setter functions
@@ -18,13 +21,19 @@ using namespace std;
 
     void Items::setDescription(string d){ description = d; }
 
-    void Items::setType(string t) { type = t; }
+    void Items::setType(int t) { type = t; }
 
 //getter functions
     string Items::getName(){ return name; }
 
     string Items::getDescription(){ return description; }
 
-    string Items::getType(){ return type; } 
+    int Items::getType(){ return type; } 
 
     bool Items::itemExists(){ return name!= ""; }
+
+    void Items::deleteItem(){
+        name = "";
+        description = "";
+        type = 0;
+    }

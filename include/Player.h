@@ -7,7 +7,7 @@ using namespace std;
 
 class Player {
     private: 
-        vector<Item> inventory;
+        vector<Items> inventory;
         int health;
         int stepsRemaining;
     public:
@@ -22,7 +22,9 @@ class Player {
         void deductSteps(int step);
 
         //Inventory Attributes
-        bool hasItem(Item item);
-        void deductItem(Item item, room* Room);
-        void giveItem(Item item);
-}
+        bool hasItem(Items item);
+        void deductItem(Items item, Room* room);
+        void giveItem(Items item);
+};
+
+#endif

@@ -1,6 +1,6 @@
 #include "../include/Player.h"
 #include "../include/Room.h"
-#include "../include/Item.h"
+#include "../include/Items.h"
 #include <stdexcept>
 using namespace std;
 
@@ -45,10 +45,10 @@ void Player::deductSteps(int step) {
     stepsRemaining = stepsRemaining - step;
 }
 
-bool Player::hasItem(Item item) {
+bool Player::hasItem(Items item) {
     bool ownership;
     for (unsigned int j = 0; j < inventory.size(); ++j) {
-        if (item == inventory.at(j)) {
+        if (item.getName() == inventory.at(j).getName()) {
             ownership = true;
             break;
         }
@@ -57,12 +57,12 @@ bool Player::hasItem(Item item) {
     return ownership;
 }
 
-void Player::deductItem(Item item, Room* currRoom) {
+void Player::deductItem(Items item, Room* currRoom) {
     size_t itemIndex = 0;
     for (unsigned int j = 0; j < inventory.size(); ++j) {
-        if (item == inventory.at(j)) {
+        if (item.getName() == inventory.at(j).getName()) {
             // drop item in the room player is currently in
-            currRoom.addItem(item);
+            currRoom->addItem(item);
             // room vect.pushback(i)
             itemIndex = j;
             // remove item from player inventory
@@ -74,7 +74,7 @@ void Player::deductItem(Item item, Room* currRoom) {
     }
 }
 
-void Player::giveItem(Item item) {
+void Player::giveItem(Items item) {
     size_t itemIndex = 0;
      for (unsigned int j = 0; j < inventory.size(); ++j) {
         //search for item index

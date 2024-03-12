@@ -2,6 +2,8 @@
 #define ROOM_H
 
 #include <string>
+#include <vector>
+#include "Items.h"
 
 class Room {
 
@@ -17,11 +19,16 @@ class Room {
         Room * roomToWest;
 
         //todo: room inventory
+        vector<Items> roomInventory;
+
+        // returns the index of an item in roomInventory if it exists
+        // otherwise, returns -1
+        const int existsInRoom(const string itemName);
 
     public:
 
         Room();
-        Room(const std::string& name, const std::string& description, bool locked);
+        Room(const std::string& name, const std::string& description, bool locked, vector<Items> roomInventory);
 
         const std::string getName() const;
         const std::string getDescription() const;
@@ -37,13 +44,9 @@ class Room {
         void setSouthRoom(Room *);
         void setEastRoom(Room *);
         void setWestRoom(Room *);
-
-        bool itemInRoom();
-        void removeItem();
-        void addItem();
-
-        //todo: room inventory
-
+    
+        void removeItemFromRoom(const string itemName);
+        void addItemToRoom(Items item);
 
 };
 

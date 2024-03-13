@@ -92,7 +92,8 @@ void CommandParser::executeCommand(string command, string parameter) {
         cout << "Go [Direction] -> Travel in a certain direction, if possible." << endl; 
         cout << "Take [Item] -> Take an item from a room, if it exists." << endl;
         cout << "Drop [Item] -> Drop an item into a room, if you possess it." << endl;
-        cout << "Use [Item] -> Use an item that exists in your inventory." << endl;
+        cout << "Examine [Item] -> View the name and description of an item, if you possess it." << endl;
+        cout << "Use [Item] -> Use an item that exists in your inventory.\n" << endl;
     } 
     else {
         cout << "\nUnknown command. Type 'help' for the list of avaliable commands.\n" << endl;

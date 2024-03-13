@@ -116,6 +116,7 @@ void Map::moveDirection(const std::string direction){
                 playerPosition = tempRoomPointer;
                 std::cout << "\nYou moved " << direction << ".\n" << std::endl;
             }
+            printCurrentRoomInfo();
     } else { // if the requested room does not exist
         std::cout << "\nYou cannot go that way!\n" << std::endl;
     }

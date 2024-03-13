@@ -84,12 +84,12 @@ void Player::examineItem(const string itemName){
     const int itemIndex = hasItem(itemName);
 
     // if you don't have the item, display dialogue and abort.
-    if(itemIndex == -1){cout << "\nYou don't have a " << itemName << "." << endl; return;}
+    if(itemIndex == -1){cout << "\nYou don't have a " << itemName << ".\n" << endl; return;}
 
     //if you do have the item, display information about it
     cout << "\nYou examine the " << itemName << "..." << endl;
     cout << "Name: " << inventory.at(itemIndex).getName() << endl;
-    cout << "Description: " << inventory.at(itemIndex).getDescription() << endl;
+    cout << "Description: " << inventory.at(itemIndex).getDescription() << "\n" << endl;
 
 }
 

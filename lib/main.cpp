@@ -23,6 +23,7 @@ private:
 CommandParser::CommandParser(Map* map, Player* player) : map(map), player(player) {}
 
 void CommandParser::runGame() {
+    cout << "\nEnter 'help' for a list of commands.\n" << endl;
     string userInput;
     while (true) {
         cout << ">> Enter your command: ";

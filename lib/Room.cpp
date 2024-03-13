@@ -4,10 +4,11 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include "Items.h"
+#include "../include/Items.h"
 
 using namespace std;
 
+// default constructor (empty everything, no directional pointers, unlocked)
 Room::Room(){
 
     this->name = "";
@@ -19,14 +20,21 @@ Room::Room(){
     this->roomToEast = nullptr;
     this->roomToWest = nullptr;
 
-    // roomInventory is empty by default
-
 }
 
+// custom constructor for room without items
+Room::Room(const std::string& name, const std::string& description, bool locked){
+    this->name = name;
+    this->description = description;
+    this->locked = locked;
+}
+
+// custom constructor for room with items
 Room::Room(const std::string& name, const std::string& description, bool locked, vector<Items> roomInventory){
     this->name = name;
     this->description = description;
     this->locked = locked;
+    this->roomInventory = roomInventory; 
 }
 
 const std::string Room::getName() const {
@@ -90,17 +98,36 @@ const int Room::existsInRoom(const string itemName){
     return -1;
 }
 
-void Room::removeItemFromRoom(const string itemName){
+// removes an item from roomInventory if it exists, and returns the item that was removed
+Items Room::removeItemFromRoom(const string itemName){
     const int indexOfItem = existsInRoom(itemName);
-    if(indexOfItem == -1){
-        cout << "\n There isn't a " << itemName << " in this room!" << endl;
-        return;
-    }
+
+    // note: there is no need to make sure that the item exists in the roomInventory
+    // because the only place this is called is in takeItemFromRoom() in the Player class,
+    // which will already check for us.
+
+    Items i = roomInventory.at(indexOfItem);
     roomInventory.erase(roomInventory.begin() + indexOfItem);
     cout << "\n" << itemName << " removed from the room.\n" << endl;
+    return i;
+
 }
 
 void Room::addItemToRoom(Items item){
     roomInventory.push_back(item);
-    cout << "\n You dropped the " << item.getName() << "." << endl;
+    cout << item.getName() << " added to room inventory." << endl;
+}
+
+void Room::printRoomInventory(){
+
+    int inventorySize = roomInventory.size();
+    
+    if(inventorySize == 0){cout << "\nThis room contains no items.\n" << endl; return;}
+
+    cout << "\nThis room contains the following items: [";
+    for(int j = 0; j < inventorySize - 1; ++j){
+        cout << roomInventory.at(j).getName() << ",";
+    }
+    cout << roomInventory.at(inventorySize-1).getName() << "]\n" << endl;
+
 }

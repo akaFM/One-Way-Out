@@ -1,7 +1,9 @@
 #include "../include/Map.h"
 #include "../include/Room.h"
+#include "../include/Items.h"
 #include <string>
 #include <iostream>
+#include <vector>
 
 Map::Map(){
     initializeGameMap();
@@ -15,19 +17,17 @@ void Map::initializeGameMap(){
             gameMap[i][j] = nullptr;
         }
     }
-
     //additionally, make playerPosition nullptr
     this->playerPosition = nullptr;
 
-    // Then, go through and put rooms where they are wanted.
-    // NOTE: THESE ROOMS...
-    // * Do not contain any items yet ( aconstructor for "Item" and derived classes must be prepared).
-    // * Have stub names / descriptions.
-    // * Are all unlocked for now (not intended for final)
-    // * Do not point to eachother until after each room is actually created (see below).
-    // ---> MAYBE MAKE A HELPER FUNCTION FOR THIS LOL
+    // ROOM INVENTORY INITIALIZATION
+    vector<Items> roomOneInventory;
+        Items testItem("testName", "testDescription", 0);
+        roomOneInventory.push_back(testItem);
 
-    gameMap[3][3] = new Room("1name", "1desc", false); // this is the spawn room
+
+    // ROOM INITIALIZATION
+    gameMap[3][3] = new Room("1name", "1desc", false, roomOneInventory); // this is the spawn room
     gameMap[2][3] = new Room("2name", "2desc", false); 
     gameMap[2][2] = new Room("3name", "3desc", false);
     gameMap[2][1] = new Room("4name", "4desc", false);
@@ -124,10 +124,8 @@ void Map::moveDirection(const std::string direction){
 
 }
 
-void Map::printCurrentRoomDescription(){
+void Map::printCurrentRoomInfo(){
+    std::cout << "\n" << playerPosition->getName() << std::endl;
     std::cout << playerPosition->getDescription() << std::endl;
-}
-
-void Map::printCurrentRoomName(){
-    std::cout << playerPosition->getName() << std::endl;
+    playerPosition->printRoomInventory();
 }

@@ -76,6 +76,20 @@ void Player::takeItemFromRoom(const string itemName, Room * currRoom) {
     // the item exists in the room, remove it from the room and add to inventory
     inventory.push_back(currRoom->removeItemFromRoom(itemName));
 
+}
+
+void Player::examineItem(const string itemName){
+
+    // check if you have the item.
+    const int itemIndex = hasItem(itemName);
+
+    // if you don't have the item, display dialogue and abort.
+    if(itemIndex == -1){cout << "\nYou don't have a " << itemName << "." << endl; return;}
+
+    //if you do have the item, display information about it
+    cout << "\nYou examine the " << itemName << "..." << endl;
+    cout << "Name: " << inventory.at(itemIndex).getName() << endl;
+    cout << "Description: " << inventory.at(itemIndex).getDescription() << endl;
 
 }
 

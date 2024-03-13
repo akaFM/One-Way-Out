@@ -7,7 +7,7 @@ using namespace std;
 
 class Player {
     private: 
-    
+
         vector<Items> inventory;
         int health;
         int stepsRemaining;
@@ -30,6 +30,7 @@ class Player {
         void deductItemFromInventory(const string itemName, Room* currRoom); // removes item from personal inv, drops into room inv
         void takeItemFromRoom(const string itemName, Room * currRoom); // removes item from room inv, adds to personal inv
         void printInventory();
+        void examineItem(const string itemName);
 
 };
 

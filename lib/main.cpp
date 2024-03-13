@@ -82,6 +82,9 @@ void CommandParser::executeCommand(string command, string parameter) {
     else if (command == "inventory" || command == "i"){
         player->printInventory();
     }
+    else if (command == "examine"){
+        player->examineItem(parameter);
+    }
     else if (command == "help") {
         cout << "\nCOMMANDS\n--------------------" << endl;
         cout << "Inventory -> Check your current inventory." << endl;

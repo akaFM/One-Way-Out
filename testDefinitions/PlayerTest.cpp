@@ -4,16 +4,16 @@
 TEST(Player, InitializePlayerConstructorEasyMode) {
     int difficulty = 1; //easy
     Player player1(difficulty);
-    ASSERT_EQ(player1.getHealth(), 2);
-    ASSERT_EQ(player1.getSteps(), 2);
+    ASSERT_EQ(player1.getHealth(), 100);
+    ASSERT_EQ(player1.getSteps(), 40);
     ASSERT_TRUE(player1.isInventoryEmpty());
 }
 
 TEST(Player, InitializePlayerConstructorHardMode) {
     int difficulty = 2; //hard
     Player player2(difficulty);
-    ASSERT_EQ(player2.getHealth(), 1);
-    ASSERT_EQ(player2.getSteps(), 1);
+    ASSERT_EQ(player2.getHealth(), 100);
+    ASSERT_EQ(player2.getSteps(), 20);
     ASSERT_TRUE(player2.isInventoryEmpty());
 }
 
@@ -21,7 +21,7 @@ TEST(Player, setHealthTo1000) {
     int difficulty = 1;
     Player player(difficulty);
     player.setHealth(1000);
-    ASSERT_GT(player.getHealth(), 2);
+    ASSERT_GT(player.getHealth(), 100);
     ASSERT_EQ(player.getHealth(), 1000);
 }
 

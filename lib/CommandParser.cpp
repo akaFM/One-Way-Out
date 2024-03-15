@@ -58,8 +58,7 @@ void CommandParser::executeCommand(string command, string parameter) {
         map->printCurrentRoomInfo();
     } 
     else if (command == "use" || command == "u") {
-        // TODO: 'USE' COMMAND
-        cout << "\nThis still needs to be implemented!\n" << endl; 
+        player->findAndUseItem(parameter);
     } 
     else if (command == "north" || command == "south" || command == "west" || command == "east") {
         map->moveDirection(command);

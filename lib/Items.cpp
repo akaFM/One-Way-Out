@@ -11,7 +11,6 @@ using namespace std;
     Items::Items() : name(""), description("")
     {}
  
-
     Items::Items(string n, string d) : name(n), description(d)
     {}
 
@@ -26,7 +25,7 @@ using namespace std;
 
     string Items::getDescription(){ return description; }
 
-    bool Items::itemExists(){ return name!= ""; }
+    bool Items::itemExists(){ return (name != ""); }
 
     void Items::deleteItem(){
         name = "";

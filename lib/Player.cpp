@@ -59,8 +59,11 @@ void Player::removeItem(string itemName){
     for (unsigned int j = 0; j < inventory.size(); ++j) {
         if (itemName == inventory.at(j).getName()) {
             inventory.erase(inventory.begin() + j);
+            return; 
         }
     }
+
+    cout << "\nDEVELOPMENT ERROR: You couldn't remove the [" << itemName << "] because you don't have one!\n" << endl; 
 
 }
 
@@ -122,8 +125,32 @@ void Player::printInventory(){
 
     cout << "\nInventory: [";
     for(int j = 0; j < inventory.size() - 1; ++j){
-        cout << inventory.at(j).getName() << ",";
+        cout << inventory.at(j).getName() << ", ";
     }
     cout << inventory.at(inventory.size()-1).getName() << "]\n" << endl;
+
+}
+
+void Player::findAndUseItem(const string itemName){
+    const int itemLocation = hasItem(itemName);
+    if(itemLocation != -1){
+        useItem(inventory.at(itemLocation));
+        return;
+    }
+    cout << "\nYou don't have that!\n" << endl;
+}
+
+void Player::useItem(Items itemToUse){
+
+    if ((itemToUse.getName() == "paperclip" || itemToUse.getName() == "bobby pin") and (hasItem("paperclip") != -1 and hasItem("bobby pin") != -1)){
+        Items lockpick("lockpick", "A makeshift lockpicking tool. You feel like you can use this for something...");
+        addItem(lockpick);
+        removeItem("bobby pin");
+        removeItem("paperclip");
+        cout << "\nYou used the paperclip and bobby pin to craft a lockpick!\n" << endl;
+        return;
+    } else {
+        cout << "\nUsing this item doesn't seem to accomplish anything.\n" << endl;
+    }
 
 }

@@ -9,16 +9,14 @@ using namespace std;
 //constructors
     Consumables::Consumables() : changeHP(0)
     {
-        Consumables c;
-        c.setName("");
-        c.setDescription("");
+        setName("");
+        setDescription("");
     }
 
-    Consumables::Consumables(string name, string description, int cHP) : changeHP(cHP)
+    Consumables::Consumables(int cHP, string name, string description) : changeHP(cHP)
     {
-        Consumables c; 
-        c.setName(name);
-        c.setDescription(description);
+        setName(name);
+        setDescription(description);
     }
 
 //setters

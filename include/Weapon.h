@@ -12,7 +12,7 @@ class Weapon : public Items {
     //Constructors
 
         Weapon();
-        Weapon(string name, string description, int dmg);
+        Weapon(int dmg, string name, string description);
 
     //setters
 

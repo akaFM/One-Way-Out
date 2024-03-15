@@ -31,7 +31,7 @@ TEST(ItemsTest, SetterFunctionTests2){
     a.setName("Pan");
     a.setDescription("1 shots anything");
     EXPECT_EQ(a.getName(), "Pan");
-    EXPECT_EQ(a.getDescription(), "1 shots anything");
+    EXPECT_EQ(a.getDescription(), "1 shots anything"); 
 }
 
 TEST(ItemsTest, SetterFunctionTests3){
@@ -39,7 +39,7 @@ TEST(ItemsTest, SetterFunctionTests3){
     a.setName("Key");
     a.setDescription("Can Open Rooms");
     EXPECT_EQ(a.getName(), "Key");
-    EXPECT_EQ(a.getDescription(), "Can Open Rooms"); 
+    EXPECT_EQ(a.getDescription(), "Can Open Rooms");
 }
 
 //Getter fucntions test
@@ -61,8 +61,14 @@ TEST(ItemsTest, itemExistsTest2){
     EXPECT_EQ(a.itemExists(), 1);
 }
 
-TEST(ItemsTest, deleteTest){
+TEST(ItemsTest, deleteTest1){
     Items a("Axe", "Dull axe. Ok for Chopping");
+    a.deleteItem();
+    EXPECT_EQ(a.itemExists(), 0);
+}
+
+TEST(ItemsTest, deleteTest2){
+    Items a("Cock", "Crazed Male chicken");
     a.deleteItem();
     EXPECT_EQ(a.itemExists(), 0);
 }

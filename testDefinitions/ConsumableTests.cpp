@@ -8,20 +8,20 @@
 TEST(ConsumableTest, ConstructorTest1){
     Consumables none; 
     EXPECT_EQ(none.getChangeHP(), 0);
-    EXPECT_EQ(none.getConsumableType(), "");
+    EXPECT_EQ(none.getName(), "");
+    EXPECT_EQ(none.getDescription(), "");
 }
 
 TEST(ConsumableTest, ConstructorTest2){
-    Consumables apple(100, "Food"); 
+    Consumables apple("apple", "Heals", 100); 
     EXPECT_EQ(apple.getChangeHP(), 100);
-    EXPECT_EQ(apple.getConsumableType(), "Food");
+    EXPECT_EQ(apple.getName(), "apple");
+    EXPECT_EQ(apple.getDescription(), "Heals");
 }
 
 //SETTER TESTS
 TEST(ConsumableTest, SetterTest1){
     Consumables fish;
     fish.setChangeHP(50);
-    fish.setConsumableType("Food");
     EXPECT_EQ(fish.getChangeHP(), 50);
-    EXPECT_EQ(fish.getConsumableType(), "Food");
 }

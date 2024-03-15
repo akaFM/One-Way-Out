@@ -54,6 +54,20 @@ const int Player::hasItem(string itemName) {
 
 }
 
+void Player::removeItem(string itemName){
+
+    for (unsigned int j = 0; j < inventory.size(); ++j) {
+        if (itemName == inventory.at(j).getName()) {
+            inventory.erase(inventory.begin() + j);
+        }
+    }
+
+}
+
+void Player::addItem(Items itemToAdd){
+    inventory.push_back(itemToAdd);
+}
+
 const bool Player::isInventoryEmpty() {
     return inventory.empty();
 }

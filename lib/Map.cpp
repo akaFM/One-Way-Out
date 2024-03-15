@@ -28,8 +28,7 @@ void Map::initializeGameMap(){
         Items note("note", "A note that reads the following: 'Did you know you can just use the first letter of a command instead of typing the whole command out? Additionally, instead of using the 'go' command, just state your direction! Maybe this will save you some time... you definitely need it.'\nWay to break the fourth wall, you think to yourself...\n");
         roomOneInventory.push_back(note);
 
-
-    // ROOM INITIALIZATION
+    // ROOM INITIALIZATION (1-12, in order)
     gameMap[3][3] = new Room("Hotel Room", "A trashed hotel room; unfolded laundry all over the place. Only the door in front of you leads out.", false, roomOneInventory); // this is the spawn room
     gameMap[2][3] = new Room("Main Hallway 1", "The formerly luxurious hallway is covered in dust. The lights are flickering. The hallway continues to your left, and there is a door to your right.", false); 
     gameMap[2][2] = new Room("Main Hallway 2", "The hallway stretches on to your left and right, dimly lit. There is a door in front of you, labeled 'Cafeteria.' Some lunch doesn't sound so bad.", false);

@@ -32,6 +32,8 @@ class Player {
         void takeItemFromRoom(const string itemName, Room * currRoom); // removes item from room inv, adds to personal inv
         void printInventory();
         void examineItem(const string itemName);
+        void addItem(Items itemToAdd);
+        void removeItem(const string itemName);
 
 };
 

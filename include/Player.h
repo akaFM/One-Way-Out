@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "../include/Items.h"
+#include "../include/Consumables.h"
 #include "../include/Room.h"
 #include <vector>
 using namespace std;
@@ -38,12 +39,14 @@ class Player {
         //Steps Attributes
         int getSteps();
         void deductSteps(int step);
+        void addSteps(const int numberOfStepsToAdd);
 
         //Inventory Attributes
         const bool isInventoryEmpty();
         void deductItemFromInventory(const string itemName, Room* currRoom); // removes item from personal inv, drops into room inv
         void takeItemFromRoom(const string itemName, Room * currRoom); // removes item from room inv, adds to personal inv
         void printInventory();
+        void eatConsumable(Consumables consumable);
 
         void examineItem(const string itemName);
         void addItem(Items itemToAdd);

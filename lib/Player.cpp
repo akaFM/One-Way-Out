@@ -2,6 +2,7 @@
 #include "../include/Room.h"
 #include "../include/Items.h"
 #include "../include/Key.h"
+#include "../include/Consumables.h"
 #include <stdexcept>
 using namespace std;
 
@@ -143,6 +144,7 @@ void Player::findAndUseItem(const string itemName, Room * currentPlayerPosition)
 
 void Player::useItem(Items itemToUse, Room * currentPlayerPosition){
 
+
     if((itemToUse.getName() == "paperclip" || itemToUse.getName() == "bobby pin") and (hasItem("paperclip") != -1 and hasItem("bobby pin") != -1)){ //crafting paperclip
         Key lockpick("Locker Room", "lockpick", "A makeshift lockpicking tool. You feel like you can use this for something...");
         addItem(lockpick);
@@ -173,4 +175,13 @@ void Player::useItem(Items itemToUse, Room * currentPlayerPosition){
         cout << "\nUsing this item doesn't seem to accomplish anything- at least not in this time or place.\n" << endl;
     }
 
+}
+
+void Player::eatConsumable(Consumables consumable){
+    addSteps(consumable.getChangeHP());
+    removeItem(consumable.getName());
+}
+
+void Player::addSteps(const int stepsToAdd){
+    stepsRemaining += stepsToAdd; 
 }

@@ -96,6 +96,7 @@
  ## Screenshots
  > Screenshots of the input/output after running your application
 > [This](https://cdn.discordapp.com/attachments/894457667878256670/1218257676753043476/image.png?ex=660701e0&is=65f48ce0&hm=1a9691a287dc9768e7c857f2e3922c5b43c1f6988a08c3a762be55f4e0abb06d&)
+> 
 > Screenshot in the beginning of the game
  ## Installation/Usage
  > Instructions on installing and running your application

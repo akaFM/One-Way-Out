@@ -1,4 +1,4 @@
-#include "Enemy.h"
+#include "../include/Enemy.h"
 
 Enemy::Enemy(string name, int health, int damage, string weakness){
     this->name = name;

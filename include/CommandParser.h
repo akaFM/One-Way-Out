@@ -9,8 +9,6 @@ class CommandParser {
 public:
     CommandParser(Map*, Player*);
     void runGame();
-    std::string getFirstWord(const std::string& input);
-    std::string getRestOfWord(const std::string& input);
     void assignCommandAndParameter(const string& uInput, string& command, string& param);
     void executeCommand(std::string m, std::string p);
     void help();

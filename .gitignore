@@ -1,8 +1,11 @@
 test
 testEXE
+mainEXE
 Makefile
 cmake_install.cmake
 lib/libgmock.a
 lib/libgmock_main.a
 lib/libgtest.a
 lib/libgtest_main.a
+CMakeFiles
+CMakeCache.txt

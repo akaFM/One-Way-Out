@@ -100,7 +100,9 @@
 > 
 > * [This](https://cdn.discordapp.com/attachments/894457667878256670/1218257773632946206/image.png?ex=660701f7&is=65f48cf7&hm=d0171b0ce7ea8eea71c50089294b492874e313fc49b72a3740cca0cf02894c27&) Screenshot of the command menu. Shows all the available command inputs you can do
 > 
-> * [This](https://cdn.discordapp.com/attachments/894457667878256670/1218258530927120404/image.png?ex=660702ab&is=65f48dab&hm=8e1a30f5b940c26e13131a3b194334041cd625c2e2be3ac048f9e8cc58f46ee1&) Screenshot of picking up and examining item. 
+> * [This](https://cdn.discordapp.com/attachments/894457667878256670/1218258530927120404/image.png?ex=660702ab&is=65f48dab&hm=8e1a30f5b940c26e13131a3b194334041cd625c2e2be3ac048f9e8cc58f46ee1&) Screenshot of picking up and examining item.
+>
+> * [This](https://cdn.discordapp.com/attachments/894457667878256670/1218272012749766766/image.png?ex=66070f3a&is=65f49a3a&hm=0b05a4764a582da31f1cfb6af7177ccfada553617148e67e1371523a56e72612&) Screenshot of the Examine and Use command. The Use command allows the crafting of an Item paperclip into a lockpick, which allows the player to unlock a room
 > 
 > * [This](https://cdn.discordapp.com/attachments/894457667878256670/1218261348946022521/image.png?ex=6607054b&is=65f4904b&hm=f224e43c60a7b7c43d4c225e9221520fae70b7fad39f2b43db60ce4b4d23b962&) Screenshot of Game over screen after reaching the maximum amount of steps
 > 
@@ -113,4 +115,6 @@
 > * To run the application, after the title screen and difficulty option choices, you can run the "help" command, which will allow you to use the application via specific command inputs
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+> * [This](https://cdn.discordapp.com/attachments/1208154094460604427/1218169313651986505/image.png?ex=6606af94&is=65f43a94&hm=4c25657fbfc39f22a94be1361e5c08cecea6a4a43e2f1b510b60e429ee3110d6&) Project tested for any memory leaks via valgrind
+> * [This]() Also tested via unit googletest
  

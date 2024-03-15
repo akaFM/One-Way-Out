@@ -108,7 +108,7 @@ Items Room::removeItemFromRoom(const string itemName){
 
     Items i = roomInventory.at(indexOfItem);
     roomInventory.erase(roomInventory.begin() + indexOfItem);
-    cout << "\n" << itemName << " removed from the room.\n" << endl;
+    cout << "\nYou picked up the " << itemName << "!\n" << endl;
     return i;
 
 }

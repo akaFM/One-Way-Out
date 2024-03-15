@@ -64,7 +64,7 @@ void Player::deductItemFromInventory(const string itemName, Room* currRoom) {
     const int itemIndex = hasItem(itemName);
 
     // player is not in possession of item they want to drop
-    if(itemIndex == -1){cout << "\nYou don't have a " << itemName << "." << endl; return;}
+    if(itemIndex == -1){cout << "\nYou don't have that." << endl; return;}
         
     // otherwise...
     currRoom->addItemToRoom(inventory.at(itemIndex)); // add item to room inventory
@@ -89,7 +89,7 @@ void Player::examineItem(const string itemName){
     const int itemIndex = hasItem(itemName);
 
     // if you don't have the item, display dialogue and abort.
-    if(itemIndex == -1){cout << "\nYou don't have a " << itemName << ".\n" << endl; return;}
+    if(itemIndex == -1){cout << "\nYou don't have that." << endl; return;}
 
     //if you do have the item, display information about it
     cout << "\nYou examine the " << itemName << "..." << endl;

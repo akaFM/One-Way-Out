@@ -13,7 +13,9 @@ string CommandParser::toLower(const string& str) {
 }
 
 void CommandParser::runGame() {
-    cout << "\nEnter 'help' for a list of commands.\n" << endl;
+
+    printIntroductoryDialogue();
+    
     string userInput;
     while (true) {
         cout << ">> Enter your command: ";
@@ -52,10 +54,10 @@ void CommandParser::assignCommandAndParameter(const string& uInput, string& comm
 }
 
 void CommandParser::executeCommand(string command, string parameter) {
-    if (command == "look") {
+    if (command == "look" || command == "l") {
         map->printCurrentRoomInfo();
     } 
-    else if (command == "use") {
+    else if (command == "use" || command == "u") {
         // TODO: 'USE' COMMAND
         cout << "\nThis still needs to be implemented!\n" << endl; 
     } 
@@ -65,19 +67,19 @@ void CommandParser::executeCommand(string command, string parameter) {
     else if (command == "go"){
         map->moveDirection(parameter);
     }
-    else if (command == "drop"){
+    else if (command == "drop" || command == "d"){
         player->deductItemFromInventory(parameter, map->getPlayerPosition());
     }
-    else if (command == "take"){
+    else if (command == "take" || command == "t"){
         player->takeItemFromRoom(parameter, map->getPlayerPosition());
     }
     else if (command == "inventory" || command == "i"){
         player->printInventory();
     }
-    else if (command == "examine"){
+    else if (command == "examine" || command == "e"){
         player->examineItem(parameter);
     }
-    else if (command == "help") {
+    else if (command == "help" || command == "h") {
         help();
     } 
     else {
@@ -94,4 +96,9 @@ void CommandParser::help() {
     cout << "Drop [Item] -> Drop an item into a room, if you possess it." << endl;
     cout << "Examine [Item] -> View the name and description of an item, if you possess it." << endl;
     cout << "Use [Item] -> Use an item that exists in your inventory.\n" << endl;
+}
+
+void CommandParser::printIntroductoryDialogue(){
+    cout << "\nYou wake up in a trashed hotel room with zero recollection of how you got there. As you realize that all of your belongings are gone, it dawns upon you that you have been abducted! There is no immediate sign of the perpetrator, but you start to feel anxious and dizzy. There's only so much time- find your way out!" << endl;
+    cout << "\n[!] Enter 'help' for a list of commands.\n" << endl;
 }

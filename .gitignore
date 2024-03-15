@@ -1,6 +1,8 @@
-test
-testEXE
+#exes
 mainEXE
+runPlayerTests
+
+#cmake junk
 Makefile
 cmake_install.cmake
 lib/libgmock.a

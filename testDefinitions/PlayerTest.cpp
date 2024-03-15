@@ -99,7 +99,3 @@ TEST(Player, playerPrintInventory) {
     EXPECT_NE(outputPlayerInventory.find("Inventory: [testItem1,testItem2,testItem3]"), string::npos);
 }
 
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}

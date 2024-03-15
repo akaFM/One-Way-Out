@@ -11,7 +11,6 @@ using namespace std;
     Items::Items() : name(""), description("")
     {}
  
-
     Items::Items(string n, string d) : name(n), description(d)
     {}
 

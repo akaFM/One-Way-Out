@@ -25,7 +25,7 @@ using namespace std;
 
     string Items::getDescription(){ return description; }
 
-    bool Items::itemExists(){ return name!= ""; }
+    bool Items::itemExists(){ return (name != ""); }
 
     void Items::deleteItem(){
         name = "";

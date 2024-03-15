@@ -19,9 +19,22 @@ TEST(ConsumableTest, ConstructorTest2){
     EXPECT_EQ(apple.getDescription(), "Heals");
 }
 
+TEST(ConsumableTest, ConstructorTest3){
+    Consumables strawberry(60, "strawberry", "Heals"); 
+    EXPECT_EQ(strawberry.getChangeHP(), 60);
+    EXPECT_EQ(strawberry.getName(), "strawberry");
+    EXPECT_EQ(strawberry.getDescription(), "Heals");
+}
+
 //SETTER TESTS
 TEST(ConsumableTest, SetterTest1){
     Consumables fish;
     fish.setChangeHP(50);
     EXPECT_EQ(fish.getChangeHP(), 50);
+}
+
+TEST(ConsumableTest, SetterTest2){
+    Consumables fish;
+    fish.setChangeHP(69);
+    EXPECT_EQ(fish.getChangeHP(), 69);
 }

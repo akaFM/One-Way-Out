@@ -61,8 +61,14 @@ TEST(ItemsTest, itemExistsTest2){
     EXPECT_EQ(a.itemExists(), 1);
 }
 
-TEST(ItemsTest, deleteTest){
+TEST(ItemsTest, deleteTest1){
     Items a("Axe", "Dull axe. Ok for Chopping");
+    a.deleteItem();
+    EXPECT_EQ(a.itemExists(), 0);
+}
+
+TEST(ItemsTest, deleteTest2){
+    Items a("Cock", "Crazed Male chicken");
     a.deleteItem();
     EXPECT_EQ(a.itemExists(), 0);
 }

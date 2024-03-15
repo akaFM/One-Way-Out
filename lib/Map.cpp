@@ -22,7 +22,7 @@ void Map::initializeGameMap(){
 
     // ROOM INVENTORY INITIALIZATION
     vector<Items> roomOneInventory;
-        Items testItem("testName", "testDescription", 0);
+        Items testItem("testName", "testDescription");
         roomOneInventory.push_back(testItem);
 
 

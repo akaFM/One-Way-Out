@@ -37,7 +37,7 @@ TEST(Player, playerTakeItemFromRoom) {
     int difficulty = 1;
     Player player(difficulty);
     vector<Items> itemsInRoom;
-    Items item1("testItem1", "test item1", 1);
+    Items item1("testItem1", "test item1");
     itemsInRoom.push_back(item1);
     Room adminRoom("adminRoom", "test room", false, itemsInRoom);
     player.takeItemFromRoom("testItem1", &adminRoom);                   
@@ -48,7 +48,7 @@ TEST(Player, playerDeductItemFromInventory) {
     int difficulty = 1;
     Player player(difficulty);
     vector<Items> itemsInRoom;
-    Items item1("testItem1", "test item1", 1);
+    Items item1("testItem1", "test item1");
     itemsInRoom.push_back(item1);
     Room adminRoom("adminRoom", "test room", false, itemsInRoom);
     player.takeItemFromRoom("testItem1", &adminRoom);
@@ -64,7 +64,7 @@ TEST(Player, playerExamineItem) {
     string outputDoesNotHaveItem = testing::internal::GetCapturedStdout();
     EXPECT_EQ(outputDoesNotHaveItem.find("You examine the Apple."), string::npos);
     vector<Items> itemsInRoom;
-    Items item1("testItem1", "test item1", 1);
+    Items item1("testItem1", "test item1");
     itemsInRoom.push_back(item1);
     Room adminRoom("adminRoom", "test room", false, itemsInRoom);
     player.takeItemFromRoom("testItem1", &adminRoom);
@@ -83,9 +83,9 @@ TEST(Player, playerPrintInventory) {
     EXPECT_NE(outputDoesNotHaveItem.find("You have nothing in your inventory!"), string::npos);
 
     vector<Items> itemsInRoom;
-    Items item1("testItem1", "test item1", 1);
-    Items item2("testItem2", "test item2", 2);
-    Items item3("testItem3", "test item3", 3);
+    Items item1("testItem1", "test item1");
+    Items item2("testItem2", "test item2");
+    Items item3("testItem3", "test item3");
     itemsInRoom.push_back(item1);
     itemsInRoom.push_back(item2);
     itemsInRoom.push_back(item3);

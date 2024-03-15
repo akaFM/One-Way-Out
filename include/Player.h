@@ -27,6 +27,7 @@ class Player {
         void deductSteps(int step);
 
         //Inventory Attributes
+        const bool isInventoryEmpty();
         void deductItemFromInventory(const string itemName, Room* currRoom); // removes item from personal inv, drops into room inv
         void takeItemFromRoom(const string itemName, Room * currRoom); // removes item from room inv, adds to personal inv
         void printInventory();

@@ -112,5 +112,5 @@
 > * For unit tests, we used the googletest submodule. [This](https://media.discordapp.net/attachments/1208154094460604427/1218292178464538635/image.png?ex=66072202&is=65f4ad02&hm=35e937de3a7aad756ef8260ec2d0287811454606f09e7afa8b765ef23f7ea370&=&format=webp&quality=lossless&width=761&height=701) and [this](https://media.discordapp.net/attachments/1208154094460604427/1218294581532033114/image.png?ex=6607243f&is=65f4af3f&hm=56bfcae88c311e67ac980a5cee848e1fb138947c2a6f48352c6b2518525e27c4&=&format=webp&quality=lossless&width=414&height=701) are snapshots of some of our unit test outputs. Much of the tests were for somewhat expected inputs, since very little of the functions in our program take direct user input. As we expand in another sprint, one of our objectives is to use the dictation of our unit tests to restructure bulky functions and classes.
 >
 ### Additional Notes
-> * The program's class diagram has been fully updated to match code changes. You can see the whole history in the "Phase III" section.
+> * The program's class diagram has been fully updated to match code changes. You can see the whole history in the "Phase III" section. All additional diagrams, such as the screen layout, are up-to-date and reflected in our program.
 > * Plans for a future sprint, which includes subclasses we didn't get to, are in the "TODO" section of our project board.

@@ -12,7 +12,17 @@ int main() {
     
     // TODO: Intro Screen
     // Give title of game, authors, and prompt user for difficulty.
-    cout << "\nWelcome to One Way Out!" << endl;
+    //cout << "\nWelcome to One Way Out!" << endl;
+
+    std::cout << R"( _____              _    _               _____       _   
+|  _  |            | |  | |             |  _  |     | |  
+| | | |_ __   ___  | |  | | __ _ _   _  | | | |_   _| |_ 
+| | | | '_ \ / _ \ | |/\| |/ _` | | | | | | | | | | | __|
+\ \_/ / | | |  __/ \  /\  / (_| | |_| | \ \_/ / |_| | |_ 
+ \___/|_| |_|\___|  \/  \/ \__,_|\__, |  \___/ \__,_|\__|
+                                  __/ |                  
+                                 |___/                   )" << "\n";
+
     cout << "Authors: Avo Karamusyan, Vincent Tang, Andrew Pham, Benjamin Nguyen and Thien Pham" << endl;
 
     bool valid = false;

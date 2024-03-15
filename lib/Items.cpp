@@ -35,5 +35,4 @@ using namespace std;
     void Items::deleteItem(){
         name = "";
         description = "";
-        type = 0;
     }

@@ -13,7 +13,7 @@ class Consumables : public Items{
     //Constructors
         Consumables();
 
-        Consumables(string name, string description, int cHP);
+        Consumables(int cHP, string name, string description);
 
     //setters
         void setChangeHP(int hp);

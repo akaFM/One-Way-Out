@@ -6,18 +6,16 @@ using namespace std;
 //key condition will either be Great, good, alright, bad, broken -> depending on condition it can work or not
 
 //constructors
-    Key::Key() : condition("Great condition. Key Works!")
+    Key::Key() : condition("Great condition")
     {
-        Key k; 
-        k.setName("");
-        k.setDescription("");
+        setName("Room Key");
+        setDescription("Can be used to open a door");
     }
 
-    Key::Key(string name, string description, string condition) : condition("Great condition. Key Works!")
+    Key::Key(string condition, string name, string description) : condition(condition)
     {
-        Key k;
-        k.setName(name);
-        k.setDescription(description);
+        setName(name);
+        setDescription(description);
     }
 
 //setter

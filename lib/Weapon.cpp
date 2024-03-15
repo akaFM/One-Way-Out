@@ -8,16 +8,14 @@ using namespace std;
 //constructors
     Weapon::Weapon() : damage(0)
     {
-        Weapon w; 
-        w.setName("");
-        w.setDescription("");
+        setName("");
+        setDescription("");
     }
 
-    Weapon::Weapon(string name, string description, int dmg) : damage(dmg)
-    {
-        Weapon w; 
-        w.setName(name);
-        w.setDescription(description);
+    Weapon::Weapon(int dmg, string name, string description) : damage(dmg)
+    { 
+        setName(name);
+        setDescription(description);
     }
 
 //setters 

@@ -9,12 +9,12 @@ Player::Player(int difficulty){
     
     if (difficulty == 1) { //case easy
         // placeholder
-        health = 2;
+        health = 100;
         stepsRemaining = 2;
     } 
     else if (difficulty == 2) { //case hard
         // placeholder
-        health = 1;
+        health = 100;
         stepsRemaining = 1;
     }
     else { //case invalid

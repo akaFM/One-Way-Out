@@ -21,9 +21,11 @@ class Player {
 
         Player(int difficulty);
 
+        //game status checkers
         bool checkIfGameOver(){
             return isGameOver;
         }
+
         void endGame(){
             isGameOver = true; 
         }

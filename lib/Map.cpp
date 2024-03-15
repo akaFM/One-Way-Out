@@ -12,6 +12,15 @@ Map::Map(){
     initializeGameMap();
 }
 
+Map::~Map() {
+    for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 5; j++){
+            delete gameMap[i][j];
+            gameMap[i][j] = nullptr;
+        }
+    }
+}
+
 void Map::initializeGameMap(){
 
     //initialize all gameMap 2D array slots to "nullptr"
@@ -68,49 +77,75 @@ void Map::initializeGameMap(){
 
     // room 1 connections
     gameMap[3][3]->setNorthRoom(gameMap[2][3]);
+    gameMap[3][3]->setSouthRoom(nullptr);
+    gameMap[3][3]->setWestRoom(nullptr);
+    gameMap[3][3]->setEastRoom(nullptr);
 
     // room 2 connections
+    gameMap[2][3]->setNorthRoom(nullptr);
     gameMap[2][3]->setSouthRoom(gameMap[3][3]);
     gameMap[2][3]->setWestRoom(gameMap[2][2]);
     gameMap[2][3]->setEastRoom(gameMap[2][4]);
 
     // room 3 connections
     gameMap[2][2]->setNorthRoom(gameMap[1][2]);
+    gameMap[2][2]->setSouthRoom(nullptr);
     gameMap[2][2]->setWestRoom(gameMap[2][1]);
     gameMap[2][2]->setEastRoom(gameMap[2][3]);
 
     // room 4 connections
+    gameMap[2][1]->setNorthRoom(nullptr);
+    gameMap[2][1]->setSouthRoom(gameMap[3][1]);
     gameMap[2][1]->setWestRoom(gameMap[2][0]);
     gameMap[2][1]->setEastRoom(gameMap[2][2]);
-    gameMap[2][1]->setSouthRoom(gameMap[3][1]);
 
     // room 5 connections
     gameMap[2][0]->setNorthRoom(gameMap[1][0]);
+    gameMap[2][0]->setSouthRoom(nullptr);
+    gameMap[2][0]->setWestRoom(nullptr);
     gameMap[2][0]->setEastRoom(gameMap[2][1]);
 
     // room 6 connections
-    gameMap[3][1]->setNorthRoom(gameMap[2][1]); 
+    gameMap[3][1]->setNorthRoom(gameMap[2][1]);
+    gameMap[3][1]->setSouthRoom(nullptr);
+    gameMap[3][1]->setWestRoom(nullptr);
+    gameMap[3][1]->setEastRoom(nullptr);
 
     // room 7 connections
+    gameMap[1][0]->setNorthRoom(nullptr);
     gameMap[1][0]->setSouthRoom(gameMap[2][0]);
+    gameMap[1][0]->setWestRoom(nullptr);
+    gameMap[1][0]->setEastRoom(nullptr);
 
     // room 8 connections
     gameMap[1][2]->setNorthRoom(gameMap[0][2]);
     gameMap[1][2]->setSouthRoom(gameMap[2][2]);
+    gameMap[1][2]->setWestRoom(nullptr);
+    gameMap[1][2]->setEastRoom(nullptr);
 
     // room 9 connections
+    gameMap[0][2]->setNorthRoom(nullptr);
     gameMap[0][2]->setSouthRoom(gameMap[1][2]);
     gameMap[0][2]->setWestRoom(gameMap[0][1]);
+    gameMap[0][2]->setEastRoom(nullptr);
 
     // room 10 connections
+    gameMap[0][1]->setNorthRoom(nullptr);
+    gameMap[0][1]->setSouthRoom(nullptr);
+    gameMap[0][1]->setWestRoom(nullptr);
     gameMap[0][1]->setEastRoom(gameMap[0][2]);
 
     // room 11 connections
     gameMap[2][4]->setNorthRoom(gameMap[1][4]);
+    gameMap[2][4]->setSouthRoom(nullptr);
     gameMap[2][4]->setWestRoom(gameMap[2][3]);
+    gameMap[2][4]->setEastRoom(nullptr);
 
     // room 12 connections
+    gameMap[1][4]->setNorthRoom(nullptr);
     gameMap[1][4]->setSouthRoom(gameMap[2][4]);
+    gameMap[1][4]->setWestRoom(nullptr);
+    gameMap[1][4]->setEastRoom(nullptr);
 
     return;
 

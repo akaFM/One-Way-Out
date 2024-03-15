@@ -52,7 +52,7 @@ int main() {
     // CommandParser c(m, p); --> This initializes the commandParser, which will be called to begin the user input loop and seperate input strings as commands.
     // The "map" and "player" passed into the CommandParser constructor are stored as attributes in CommandParser since they need to be accessed continuously.
     CommandParser c(&m, &p);
-
+    
     c.runGame();
 
     return 0;

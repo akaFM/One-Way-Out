@@ -17,7 +17,8 @@ void CommandParser::runGame() {
     printIntroductoryDialogue();
     
     string userInput;
-    while (true) {
+    while(!player->checkIfGameOver()) {
+
         cout << ">> Enter your command: ";
         getline(cin, userInput);
         userInput = toLower(userInput);
@@ -32,7 +33,9 @@ void CommandParser::runGame() {
         } else {
             cout << "Invalid input. Please enter a valid command." << endl;
         }
+
     }
+
 }
 
 void CommandParser::assignCommandAndParameter(const string& uInput, string& command, string& param){
@@ -58,7 +61,7 @@ void CommandParser::executeCommand(string command, string parameter) {
         map->printCurrentRoomInfo();
     } 
     else if (command == "use" || command == "u") {
-        player->findAndUseItem(parameter);
+        player->findAndUseItem(parameter, map->getPlayerPosition());
     } 
     else if (command == "north" || command == "south" || command == "west" || command == "east") {
         map->moveDirection(command);

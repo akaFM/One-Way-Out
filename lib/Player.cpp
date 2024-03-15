@@ -1,6 +1,7 @@
 #include "../include/Player.h"
 #include "../include/Room.h"
 #include "../include/Items.h"
+#include "../include/Key.h"
 #include <stdexcept>
 using namespace std;
 
@@ -131,26 +132,44 @@ void Player::printInventory(){
 
 }
 
-void Player::findAndUseItem(const string itemName){
+void Player::findAndUseItem(const string itemName, Room * currentPlayerPosition){
     const int itemLocation = hasItem(itemName);
     if(itemLocation != -1){
-        useItem(inventory.at(itemLocation));
+        useItem(inventory.at(itemLocation), currentPlayerPosition);
         return;
     }
     cout << "\nYou don't have that!\n" << endl;
 }
 
-void Player::useItem(Items itemToUse){
+void Player::useItem(Items itemToUse, Room * currentPlayerPosition){
 
-    if ((itemToUse.getName() == "paperclip" || itemToUse.getName() == "bobby pin") and (hasItem("paperclip") != -1 and hasItem("bobby pin") != -1)){
-        Items lockpick("lockpick", "A makeshift lockpicking tool. You feel like you can use this for something...");
+    if((itemToUse.getName() == "paperclip" || itemToUse.getName() == "bobby pin") and (hasItem("paperclip") != -1 and hasItem("bobby pin") != -1)){ //crafting paperclip
+        Key lockpick("Locker Room", "lockpick", "A makeshift lockpicking tool. You feel like you can use this for something...");
         addItem(lockpick);
         removeItem("bobby pin");
         removeItem("paperclip");
         cout << "\nYou used the paperclip and bobby pin to craft a lockpick!\n" << endl;
         return;
-    } else {
-        cout << "\nUsing this item doesn't seem to accomplish anything.\n" << endl;
+    }
+    else if(itemToUse.getName() == "lockpick" and currentPlayerPosition->getName() == "Indoor Pool" and currentPlayerPosition->getNorthRoom()->isLocked()){ //unlocking locker room
+        currentPlayerPosition->getNorthRoom()->setLocked(false);
+        removeItem("lockpick");
+        cout << "\nYou unlocked the Locker Room, but your lockpick broke!\n" << endl;
+    }
+    else if(itemToUse.getName() == "flashlight" and currentPlayerPosition->getName() == "Kitchen" and currentPlayerPosition->getWestRoom()->isLocked()){ //unlocking meat locker
+        currentPlayerPosition->getWestRoom()->setLocked(false);
+        cout << "\nYou shine your flashlight into the meat locker, illuminating the way!\n" << endl;
+    }
+    else if(itemToUse.getName() == "janitor's keys" and currentPlayerPosition->getName() == "Main Hallway 3" and currentPlayerPosition->getSouthRoom()->isLocked()){
+        currentPlayerPosition->getSouthRoom()->setLocked(false);
+        cout << "\nYou unlocked the janitor's closet!\n" << endl;
+    }
+    else if(itemToUse.getName() == "crowbar" and currentPlayerPosition->getName() == "Main Lobby"){ //case: win the game!!
+        cout << "\nYou pried open the hotel entrance and ran out, feeling the fresh air fill your lungs!\n" << endl;
+        endGame();
+    }
+    else{
+        cout << "\nUsing this item doesn't seem to accomplish anything- at least not in this time or place.\n" << endl;
     }
 
 }

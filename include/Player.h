@@ -11,13 +11,23 @@ class Player {
         vector<Items> inventory;
         int health;
         int stepsRemaining;
-        const int hasItem(string itemName); //helper: returns index of item in inv, -1 otherwise
+        bool isGameOver = false;
 
-        void useItem(Items itemToUse);
+        const int hasItem(string itemName); //helper: returns index of item in inv, -1 otherwise
+        void useItem(Items itemToUse, Room * currentPlayerPosition);
+
     
     public:
 
         Player(int difficulty);
+
+        bool checkIfGameOver(){
+            return isGameOver;
+        }
+        void endGame(){
+            cout << "YOU WIN!\nThank you for playing!\n" << endl;
+            isGameOver = true; 
+        }
 
         //Health Attributes
         int getHealth();
@@ -37,7 +47,7 @@ class Player {
         void examineItem(const string itemName);
         void addItem(Items itemToAdd);
         void removeItem(const string itemName);
-        void findAndUseItem(const string itemName);
+        void findAndUseItem(const string itemName, Room * currentPlayerPosition);
 
 };
 

@@ -7,11 +7,16 @@ using namespace std;
 
 class Player {
     private: 
-        vector<Item> inventory;
+
+        vector<Items> inventory;
         int health;
         int stepsRemaining;
+        const int hasItem(string itemName); //helper: returns index of item in inv, -1 otherwise
+    
     public:
-        Player(int Difficulty);
+
+        Player(int difficulty);
+
         //Health Attributes
         int getHealth();
         void setHealth(int hp);
@@ -22,7 +27,12 @@ class Player {
         void deductSteps(int step);
 
         //Inventory Attributes
-        bool hasItem(Item item);
-        void deductItem(Item item, room* Room);
-        void giveItem(Item item);
-}
+        const bool isInventoryEmpty();
+        void deductItemFromInventory(const string itemName, Room* currRoom); // removes item from personal inv, drops into room inv
+        void takeItemFromRoom(const string itemName, Room * currRoom); // removes item from room inv, adds to personal inv
+        void printInventory();
+        void examineItem(const string itemName);
+
+};
+
+#endif

@@ -1,28 +1,25 @@
 #include "../include/Player.h"
 #include "../include/Room.h"
-#include "../include/Item.h"
+#include "../include/Items.h"
 #include <stdexcept>
 using namespace std;
 
 Player::Player(int difficulty){
-    // easy mode
-    if (difficulty == 1) {
+    
+    if (difficulty == 1) { //case easy
         // placeholder
         health = 2;
         stepsRemaining = 2;
-    }
-
-    // hard mode
-    if (difficulty == 2) {
+    } 
+    else if (difficulty == 2) { //case hard
         // placeholder
         health = 1;
         stepsRemaining = 1;
     }
-
-    // invalid difficulty
-    else {
+    else { //case invalid
         throw invalid_argument("Invalid difficulty");
     }
+
 }
 
 int Player::getHealth() {
@@ -45,44 +42,74 @@ void Player::deductSteps(int step) {
     stepsRemaining = stepsRemaining - step;
 }
 
-bool Player::hasItem(Item item) {
-    bool ownership;
+
+const int Player::hasItem(string itemName) {
+    
     for (unsigned int j = 0; j < inventory.size(); ++j) {
-        if (item == inventory.at(j)) {
-            ownership = true;
-            break;
+        if (itemName == inventory.at(j).getName()) {
+            return j;
         }
-        ownership = false;
     }
-    return ownership;
+    return -1;
+
 }
 
-void Player::deductItem(Item item, Room* currRoom) {
-    size_t itemIndex = 0;
-    for (unsigned int j = 0; j < inventory.size(); ++j) {
-        if (item == inventory.at(j)) {
-            // drop item in the room player is currently in
-            currRoom.addItem(item);
-            // room vect.pushback(i)
-            itemIndex = j;
-            // remove item from player inventory
-            if (itemIndex < inventory.size()) {
-                inventory.erase(inventory.begin() + j);
-                break;
-            }
-        }
-    }
+const bool Player::isInventoryEmpty() {
+    return inventory.empty();
 }
 
-void Player::giveItem(Item item) {
-    size_t itemIndex = 0;
-     for (unsigned int j = 0; j < inventory.size(); ++j) {
-        //search for item index
-        //give item
-        //remove item from player inventory
-        if (itemIndex < inventory.size()) {
-            inventory.erase(inventory.begin() + j);
-        break;
-        }
+void Player::deductItemFromInventory(const string itemName, Room* currRoom) {
+
+    // -1 if item isn't in inventory, otherwise, returns index of the item
+    const int itemIndex = hasItem(itemName);
+
+    // player is not in possession of item they want to drop
+    if(itemIndex == -1){cout << "\nYou don't have a " << itemName << "." << endl; return;}
+        
+    // otherwise...
+    currRoom->addItemToRoom(inventory.at(itemIndex)); // add item to room inventory
+    inventory.erase(inventory.begin() + itemIndex); // remove item from inventory
+    cout << "\n You dropped the " << itemName << ".\n" << endl; // dialogue prompt
+
+}
+
+void Player::takeItemFromRoom(const string itemName, Room * currRoom) {
+    
+    // the sought item does not exist in the room.
+    if(currRoom->existsInRoom(itemName) == -1){cout << "\nThere is no " << itemName << " in this room!\n" << endl; return;}
+
+    // the item exists in the room, remove it from the room and add to inventory
+    inventory.push_back(currRoom->removeItemFromRoom(itemName));
+
+}
+
+void Player::examineItem(const string itemName){
+
+    // check if you have the item.
+    const int itemIndex = hasItem(itemName);
+
+    // if you don't have the item, display dialogue and abort.
+    if(itemIndex == -1){cout << "\nYou don't have a " << itemName << ".\n" << endl; return;}
+
+    //if you do have the item, display information about it
+    cout << "\nYou examine the " << itemName << "..." << endl;
+    cout << "Name: " << inventory.at(itemIndex).getName() << endl;
+    cout << "Description: " << inventory.at(itemIndex).getDescription() << "\n" << endl;
+
+}
+
+void Player::printInventory(){
+
+    // inventory empty
+    if(inventory.size() == 0){
+        cout << "\nYou have nothing in your inventory!\n" << endl;
+        return;
     }
+
+    cout << "\nInventory: [";
+    for(int j = 0; j < inventory.size() - 1; ++j){
+        cout << inventory.at(j).getName() << ",";
+    }
+    cout << inventory.at(inventory.size()-1).getName() << "]\n" << endl;
+
 }

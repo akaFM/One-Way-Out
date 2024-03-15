@@ -85,9 +85,10 @@
 > * We also used the **Liskov Substitution Principle** in our class diagram by clarifying that, in functions which utilize "Item" as a paremeter, subclasses for "Item" can be used in the same way. This is something that is more-so proven in the actual implementation of the code rather than a class-diagram documentation, but we included it in the parameter space for functions like "useItem" or "hasItem" to elaborate on the fact that the "item" parameter in question does not actually have to be of the base class.
 >
 > * And finally, we used the **Dependency Inversion Principle** in our class diagram by implementing the functions "printRoomName" and "printRoomDescription" as members of the "Map" class. Initially, the "CommandParser" class was expected to call the member functions of the "Room" class (a lower-level module) in order to indicate, in dialogue, the name and description of the user's current position. However, this task was allocated to the Map class such that the CommandParser class no longer has to access anything relating to the Room class at all. This change is a part of the **Dependency Inversion Principle** because it, by nature, relies on the abstraction of the Map class in order to relay appropriate information to the highest-level module. Before, the CommandParser class would have to call the "getName" function of Room and print it, but all of that is automatically completed now by simply calling "printRoomName" in the Map class.
+
+## Final Deliverable
  
- ## Screenshots
- > Screenshots of the input/output after running your application
+### Screenshots
 > 
 > * [Here](https://cdn.discordapp.com/attachments/894457667878256670/1218257676753043476/image.png?ex=660701e0&is=65f48ce0&hm=1a9691a287dc9768e7c857f2e3922c5b43c1f6988a08c3a762be55f4e0abb06d&) is a picture of the introductory screen, which displays the title and specific difficulties.
 > 
@@ -101,11 +102,10 @@
 > 
 > 
  ## Installation/Usage
- > Instructions on installing and running your application
->
-> * Compile all the .cpp files
-> * ./a.out executable
-> * To run the application, after the title screen and difficulty option choices, you can run the "help" command, which will allow you to use the application via specific command inputs
+ > * First, make a local clone of the repository using ssh, and make sure you 'git pull' so that all necessary files are included.
+>  * If you are going to compile using CMake and not manually, the test executables will automatically compile alongside the main executable. Because of this, you need to ensure that the gtest submodule is functional. If you receive errors relating to gtest, please run the following command: $ git submodule update --init --recursive. This will ensure that your local copy has successfully cloned the gtest submodule.
+>  * Run whichever executable you want to use- "./mainEXE" will start the game.
+>  * All instructions on how to play the game will be printed in the console thereafter.
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
 > * [This](https://cdn.discordapp.com/attachments/1208154094460604427/1218169313651986505/image.png?ex=6606af94&is=65f43a94&hm=4c25657fbfc39f22a94be1361e5c08cecea6a4a43e2f1b510b60e429ee3110d6&) Project tested for any memory leaks via valgrind

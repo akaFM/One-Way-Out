@@ -16,7 +16,7 @@ Player::Player(int difficulty){
     else if (difficulty == 2) { //case hard
         // placeholder
         health = 100;
-        stepsRemaining = 28;
+        stepsRemaining = 29;
     }
     else { //case invalid
         throw invalid_argument("Invalid difficulty");

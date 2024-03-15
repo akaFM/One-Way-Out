@@ -7,23 +7,20 @@ class Weapon : public Items {
     
     private:
         int damage;
-        string weaponType; 
 
     public:
     //Constructors
 
         Weapon();
-        Weapon(int dmg, string wT);
+        Weapon(string name, string description, int dmg);
 
     //setters
 
         void setDamage(int dmg);
-        void setWeaponType(string wT); 
 
     //getters
 
         int getDamage();
-        string getWeaponType(); 
 
 
 };

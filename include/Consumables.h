@@ -7,22 +7,19 @@ class Consumables : public Items{
 
     private: 
         int changeHP;
-        string consumableType; 
 
     public:
 
     //Constructors
         Consumables();
 
-        Consumables(int cHP, string cT);
+        Consumables(string name, string description, int cHP);
 
     //setters
         void setChangeHP(int hp);
-        void setConsumableType(string cT); 
 
     //getters
         int getChangeHP();
-        string getConsumableType(); 
 
 };
 

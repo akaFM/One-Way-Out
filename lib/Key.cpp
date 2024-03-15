@@ -7,7 +7,18 @@ using namespace std;
 
 //constructors
     Key::Key() : condition("Great condition. Key Works!")
-    {}
+    {
+        Key k; 
+        k.setName("");
+        k.setDescription("");
+    }
+
+    Key::Key(string name, string description, string condition) : condition("Great condition. Key Works!")
+    {
+        Key k;
+        k.setName(name);
+        k.setDescription(description);
+    }
 
 //setter
     void Key::setCondition(string c) { condition = c; }

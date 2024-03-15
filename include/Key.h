@@ -11,7 +11,8 @@ class Key : public Items{
     public:
     
     //constructors
-        Key();
+        Key(); 
+        Key(string name, string description, string condition);
 
     //setter
         void setCondition(string c);

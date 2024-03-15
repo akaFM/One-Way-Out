@@ -9,11 +9,10 @@ using namespace std;
 
 //constructors
     Items::Items() : name(""), description("")
-    {
-        type = rand() % 3;
-    }
+    {}
+ 
 
-    Items::Items(string n, string d, int t) : name(n), description(d), type(t)
+    Items::Items(string n, string d) : name(n), description(d)
     {}
 
 //setter functions
@@ -21,19 +20,15 @@ using namespace std;
 
     void Items::setDescription(string d){ description = d; }
 
-    void Items::setType(int t) { type = t; }
 
 //getter functions
     string Items::getName(){ return name; }
 
     string Items::getDescription(){ return description; }
 
-    int Items::getType(){ return type; } 
-
     bool Items::itemExists(){ return name!= ""; }
 
     void Items::deleteItem(){
         name = "";
         description = "";
-        type = 0;
     }

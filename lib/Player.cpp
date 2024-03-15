@@ -1,0 +1,115 @@
+#include "../include/Player.h"
+#include "../include/Room.h"
+#include "../include/Items.h"
+#include <stdexcept>
+using namespace std;
+
+Player::Player(int difficulty){
+    
+    if (difficulty == 1) { //case easy
+        // placeholder
+        health = 2;
+        stepsRemaining = 2;
+    } 
+    else if (difficulty == 2) { //case hard
+        // placeholder
+        health = 1;
+        stepsRemaining = 1;
+    }
+    else { //case invalid
+        throw invalid_argument("Invalid difficulty");
+    }
+
+}
+
+int Player::getHealth() {
+    return health;
+}
+
+void Player::setHealth(int hp) {
+    health = hp; 
+}
+
+void Player::deductHealth(int hp) {
+    health = health - hp;
+}
+
+int Player::getSteps() {
+    return stepsRemaining;
+}
+
+void Player::deductSteps(int step) { 
+    stepsRemaining = stepsRemaining - step;
+}
+
+
+const int Player::hasItem(string itemName) {
+    
+    for (unsigned int j = 0; j < inventory.size(); ++j) {
+        if (itemName == inventory.at(j).getName()) {
+            return j;
+        }
+    }
+    return -1;
+
+}
+
+const bool Player::isInventoryEmpty() {
+    return inventory.empty();
+}
+
+void Player::deductItemFromInventory(const string itemName, Room* currRoom) {
+
+    // -1 if item isn't in inventory, otherwise, returns index of the item
+    const int itemIndex = hasItem(itemName);
+
+    // player is not in possession of item they want to drop
+    if(itemIndex == -1){cout << "\nYou don't have a " << itemName << "." << endl; return;}
+        
+    // otherwise...
+    currRoom->addItemToRoom(inventory.at(itemIndex)); // add item to room inventory
+    inventory.erase(inventory.begin() + itemIndex); // remove item from inventory
+    cout << "\n You dropped the " << itemName << ".\n" << endl; // dialogue prompt
+
+}
+
+void Player::takeItemFromRoom(const string itemName, Room * currRoom) {
+    
+    // the sought item does not exist in the room.
+    if(currRoom->existsInRoom(itemName) == -1){cout << "\nThere is no " << itemName << " in this room!\n" << endl; return;}
+
+    // the item exists in the room, remove it from the room and add to inventory
+    inventory.push_back(currRoom->removeItemFromRoom(itemName));
+
+}
+
+void Player::examineItem(const string itemName){
+
+    // check if you have the item.
+    const int itemIndex = hasItem(itemName);
+
+    // if you don't have the item, display dialogue and abort.
+    if(itemIndex == -1){cout << "\nYou don't have a " << itemName << ".\n" << endl; return;}
+
+    //if you do have the item, display information about it
+    cout << "\nYou examine the " << itemName << "..." << endl;
+    cout << "Name: " << inventory.at(itemIndex).getName() << endl;
+    cout << "Description: " << inventory.at(itemIndex).getDescription() << "\n" << endl;
+
+}
+
+void Player::printInventory(){
+
+    // inventory empty
+    if(inventory.size() == 0){
+        cout << "\nYou have nothing in your inventory!\n" << endl;
+        return;
+    }
+
+    cout << "\nInventory: [";
+    for(int j = 0; j < inventory.size() - 1; ++j){
+        cout << inventory.at(j).getName() << ",";
+    }
+    cout << inventory.at(inventory.size()-1).getName() << "]\n" << endl;
+
+}

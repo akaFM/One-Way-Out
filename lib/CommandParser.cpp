@@ -1,4 +1,4 @@
-#include "CommandParser.h"
+#include "../include/CommandParser.h"
 #include <iostream>
 using namespace std;
 
@@ -13,48 +13,23 @@ string CommandParser::toLower(const string& str) {
 }
 
 void CommandParser::runGame() {
+    cout << "\nEnter 'help' for a list of commands.\n" << endl;
     string userInput;
     while (true) {
-        cout << "Enter your command: ";
+        cout << ">> Enter your command: ";
         getline(cin, userInput);
         userInput = toLower(userInput);
         if (userInput == "exit") {
             break; 
         }
         if (userInput.size() > 0 && userInput.size() < 25) {
-            string command = getFirstWord(userInput);
-            string parameter = getRestOfWord(userInput);
+            string command, parameter;
+            assignCommandAndParameter(userInput, command, parameter);
+            // MAKE THE COMMAND AND PARAMETER LOWERCASE BEFORE PASSING IT TO EXECUTECOMMAND
             executeCommand(command, parameter);
         } else {
             cout << "Invalid input. Please enter a valid command." << endl;
         }
-    }
-}
-
-string CommandParser::getFirstWord(const string& userInput) {
-    size_t usePos = userInput.find("use");
-    size_t lookPos = userInput.find("look");
-    size_t goPos = userInput.find("go");
-    if (usePos != string::npos) { 
-        return "use";
-    } 
-    else if (lookPos != string::npos) { 
-        return "look";
-    } 
-    else if (goPos != string::npos) { 
-        return "go";
-    }
-    else {
-        return "";
-}
-
-string CommandParser::getRestOfWord(const string& userInput) {
-    string parameter = getFirstCommand(userInput);
-    if (!parameter.empty()) {
-        size_t pos = userInput.find(parameter);
-        return userInput.substr(pos + parameter.length());
-    } else {
-        return userInput;
     }
 }
 
@@ -78,20 +53,41 @@ void CommandParser::assignCommandAndParameter(const string& uInput, string& comm
 
 void CommandParser::executeCommand(string command, string parameter) {
     if (command == "look") {
-        cout << "Looking around the room..." << endl;
+        map->printCurrentRoomInfo();
     } 
     else if (command == "use") {
-        // call use command in Item class
-        cout << "Using item: " << parameter << " (Item class)" << endl;
+        // TODO: 'USE' COMMAND
+        cout << "\nThis still needs to be implemented!\n" << endl; 
     } 
-    else if (command == "go") {
-        // call moveDirection command in Map class
-        cout << "Heading to another location..." << endl;
+    else if (command == "north" || command == "south" || command == "west" || command == "east") {
+        map->moveDirection(command);
     } 
+    else if (command == "go"){
+        map->moveDirection(parameter);
+    }
+    else if (command == "drop"){
+        player->deductItemFromInventory(parameter, map->getPlayerPosition());
+    }
+    else if (command == "take"){
+        player->takeItemFromRoom(parameter, map->getPlayerPosition());
+    }
+    else if (command == "inventory" || command == "i"){
+        player->printInventory();
+    }
+    else if (command == "examine"){
+        player->examineItem(parameter);
+    }
     else if (command == "help") {
-        help();
+        cout << "\nCOMMANDS\n--------------------" << endl;
+        cout << "Inventory -> Check your current inventory." << endl;
+        cout << "Look -> View information about your current position." << endl;
+        cout << "Go [Direction] -> Travel in a certain direction, if possible." << endl; 
+        cout << "Take [Item] -> Take an item from a room, if it exists." << endl;
+        cout << "Drop [Item] -> Drop an item into a room, if you possess it." << endl;
+        cout << "Examine [Item] -> View the name and description of an item, if you possess it." << endl;
+        cout << "Use [Item] -> Use an item that exists in your inventory.\n" << endl;
     } 
     else {
-        cout << "Unknown command. Type 'help' for the list of avaliable commands." << endl;
+        cout << "\nUnknown command. Type 'help' for the list of avaliable commands.\n" << endl;
     }
 }

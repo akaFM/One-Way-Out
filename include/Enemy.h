@@ -23,8 +23,6 @@ class Enemy {
         void setWeakness(string);
         void damageEnemy(int);
 
-
-
 };
 
 #endif

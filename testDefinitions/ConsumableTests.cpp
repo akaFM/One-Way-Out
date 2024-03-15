@@ -26,6 +26,7 @@ TEST(ConsumableTest, ConstructorTest3){
     EXPECT_EQ(strawberry.getDescription(), "Heals");
 }
 
+
 //SETTER TESTS
 TEST(ConsumableTest, SetterTest1){
     Consumables fish;

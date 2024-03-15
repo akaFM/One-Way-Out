@@ -1,6 +1,9 @@
 #include "../include/Map.h"
 #include "../include/Room.h"
 #include "../include/Items.h"
+#include "../include/Consumables.h"
+#include "../include/Key.h"
+#include "../include/Weapon.h"
 #include <string>
 #include <iostream>
 #include <vector>
@@ -22,23 +25,23 @@ void Map::initializeGameMap(){
 
     // ROOM INVENTORY INITIALIZATION
     vector<Items> roomOneInventory;
-        Items testItem("testName", "testDescription");
-        roomOneInventory.push_back(testItem);
+        Items note("note", "A note that reads the following: 'Did you know you can just use the first letter of a command instead of typing the whole command out? Additionally, instead of using the 'go' command, just state your direction! Maybe this will save you some time... you definitely need it.'\nWay to break the fourth wall, you think to yourself...\n");
+        roomOneInventory.push_back(note);
 
 
     // ROOM INITIALIZATION
-    gameMap[3][3] = new Room("1name", "1desc", false, roomOneInventory); // this is the spawn room
-    gameMap[2][3] = new Room("2name", "2desc", false); 
-    gameMap[2][2] = new Room("3name", "3desc", false);
-    gameMap[2][1] = new Room("4name", "4desc", false);
-    gameMap[2][0] = new Room("5name", "5desc", false);
-    gameMap[3][1] = new Room("6name", "6desc", false);
-    gameMap[1][0] = new Room("7name", "7desc", false);
-    gameMap[1][2] = new Room("8name", "8desc", false);
-    gameMap[0][2] = new Room("9name", "9desc", false);
-    gameMap[0][1] = new Room("10name", "10desc", false);
-    gameMap[2][4] = new Room("11name", "11desc", false);
-    gameMap[1][4] = new Room("12name", "12desc", false);
+    gameMap[3][3] = new Room("Hotel Room", "A trashed hotel room; unfolded laundry all over the place. Only the door in front of you leads out.", false, roomOneInventory); // this is the spawn room
+    gameMap[2][3] = new Room("Main Hallway 1", "The formerly luxurious hallway is covered in dust. The lights are flickering. The hallway continues to your left, and there is a door to your right.", false); 
+    gameMap[2][2] = new Room("Main Hallway 2", "The hallway stretches on to your left and right, dimly lit. There is a door in front of you, labeled 'Cafeteria.' Some lunch doesn't sound so bad.", false);
+    gameMap[2][1] = new Room("Main Hallway 3", "This portion of the hallway is much darker. There are cobwebs all over the place. You can return east into a more familiar area, open the door to your south, or head west toward the indoor pool.", false);
+    gameMap[2][0] = new Room("Indoor Pool", "The pool is completely empty! A good swim would've been perfect right now. You can head eastward into the main hallway, or explore the locker room to your north.", false);
+    gameMap[3][1] = new Room("Janitor Closet", "Northing too special in here, just a bunch of mops and janitorial equipment. Maybe something in here could be useful. You can head north back into the main hallway.", false);
+    gameMap[1][0] = new Room("Locker Room", "The floor is all wet. Some of the lockers are wide open. You can head south, back to the pool area, when you're ready.", false);
+    gameMap[1][2] = new Room("Cafeteria", "The cafeteria isn't actually in such terrible condition. You wonder whether you should sit down for a while, or move north into the kitchen. The door to the main hallway remains open behind you.", false);
+    gameMap[0][2] = new Room("Kitchen", "Unlike the cafeteria, this kitchen is disgusting. Normally, you wouldn't even consider eating food from here, but maybe desperate times call for desperate measures. You can try to enter the meat locker to your left, or head south the the cafeteria.", false);
+    gameMap[0][1] = new Room("Meat Locker", "It's freezing in here. The stench of expired poultry floods your nostrils. You immediately feel compelled to leave via the door to your east, but maybe you'll do some searching first.", false);
+    gameMap[2][4] = new Room("Stairwell", "You enter a dark stairwell. The lights are flickering. The door to the main lobby is down a flight of stairs to your north, and a door to your west that leads back to the hallway.", false);
+    gameMap[1][4] = new Room("Main Lobby", "The hotel's main entrance is boarded off! It looks like someone tried to trap you in here. You've got to get out. The door to your south leads back to the stairwell.", false);
 
     this->playerPosition = gameMap[3][3]; //set spawn location
 
@@ -104,8 +107,11 @@ void Map::moveDirection(const std::string direction){
     else if(direction == "south"){tempRoomPointer = playerPosition->getSouthRoom();}
     else if(direction == "east"){tempRoomPointer = playerPosition->getEastRoom();}
     else if(direction == "west"){tempRoomPointer = playerPosition->getWestRoom();}
-    else{
-        std::cout << "\nInvalid direction.\n" << std::endl;
+    else if(direction == ""){
+        std::cout << "\nGo where?\n" << std::endl;
+        return;
+    } else {
+        std::cout << "\nYou can only go north, south, east, or west.\n" << std::endl;
         return; // this would only happen if commandParser calls moveDirection incorrectly
     }
 

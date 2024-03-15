@@ -29,17 +29,16 @@ lib/Room.cpp
 lib/Weapon.cpp
 )
 
-ADD_EXECUTABLE(runItemTest
+ADD_EXECUTABLE(runItemTests
     lib/Items.cpp
     lib/Consumables.cpp
     lib/Weapon.cpp
     lib/Key.cpp
-    test/ItemTests.cpp
-    test/ConsumableTests.cpp
-    test/WeaponTests.cpp 
-    test/KeyTests.cpp
+    testDefinitions/ItemTests.cpp
+    testDefinitions/ConsumableTests.cpp
+    testDefinitions/WeaponTests.cpp 
+    testDefinitions/KeyTests.cpp
 )
-
 
 
 TARGET_LINK_LIBRARIES(runPlayerTests gtest gtest_main)

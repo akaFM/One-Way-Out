@@ -102,13 +102,13 @@
 > 
 > 
  ## Installation/Usage
- > * First, make a local clone of the repository using ssh, and make sure you 'git pull' so that all necessary files are included.
+ > * First, make a local clone of the repository using ssh, and make sure you 'git pull' so that all necessary/up-to-date files are included.
 >  * Compile the build using the following commands: $ cmake .  $ make
 >  * When you compile using CMake and not manually, the test executables will automatically compile alongside the main executable. Because of this, you need to ensure that the gtest submodule is functional. If you receive errors relating to gtest, please run the following command: $ git submodule update --init --recursive. This will ensure that your local copy has successfully cloned the gtest submodule.
 >  * Run whichever executable you want to use- "./mainEXE" will start the game.
 >  * All instructions on how to play the game will be printed in the console thereafter.
+> 
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
-> * [This](https://cdn.discordapp.com/attachments/1208154094460604427/1218169313651986505/image.png?ex=6606af94&is=65f43a94&hm=4c25657fbfc39f22a94be1361e5c08cecea6a4a43e2f1b510b60e429ee3110d6&) Project tested for any memory leaks via valgrind
-> * [This]() Also tested via unit googletest
+> * First and foremost, we tested the program for memory leaks using valgrind. As you can see in [this](https://cdn.discordapp.com/attachments/1208154094460604427/1218169313651986505/image.png?ex=6606af94&is=65f43a94&hm=4c25657fbfc39f22a94be1361e5c08cecea6a4a43e2f1b510b60e429ee3110d6&) attachment, we were able to optimize the program to the extent where it's memory-leak free. An example of a problem that this type of testing solved can be seen in pull request #77. 
+> * For unit tests, we used the googletest submodule. [This]() is a snapshot of some of our unit tests. Much of the tests were for somewhat expected inputs, since very little of the functions in our program take direct user input. As we expand in another sprint, one of our objectives is to use the dictation of our unit tests restructure bulky functions and classes.
  

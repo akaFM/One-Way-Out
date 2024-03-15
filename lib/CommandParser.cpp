@@ -78,16 +78,20 @@ void CommandParser::executeCommand(string command, string parameter) {
         player->examineItem(parameter);
     }
     else if (command == "help") {
-        cout << "\nCOMMANDS\n--------------------" << endl;
-        cout << "Inventory -> Check your current inventory." << endl;
-        cout << "Look -> View information about your current position." << endl;
-        cout << "Go [Direction] -> Travel in a certain direction, if possible." << endl; 
-        cout << "Take [Item] -> Take an item from a room, if it exists." << endl;
-        cout << "Drop [Item] -> Drop an item into a room, if you possess it." << endl;
-        cout << "Examine [Item] -> View the name and description of an item, if you possess it." << endl;
-        cout << "Use [Item] -> Use an item that exists in your inventory.\n" << endl;
+        help();
     } 
     else {
         cout << "\nUnknown command. Type 'help' for the list of avaliable commands.\n" << endl;
     }
+}
+
+void CommandParser::help() {
+    cout << "\nCOMMANDS\n--------------------" << endl;
+    cout << "Inventory -> Check your current inventory." << endl;
+    cout << "Look -> View information about your current position." << endl;
+    cout << "Go [Direction] -> Travel in a certain direction, if possible." << endl; 
+    cout << "Take [Item] -> Take an item from a room, if it exists." << endl;
+    cout << "Drop [Item] -> Drop an item into a room, if you possess it." << endl;
+    cout << "Examine [Item] -> View the name and description of an item, if you possess it." << endl;
+    cout << "Use [Item] -> Use an item that exists in your inventory.\n" << endl;
 }

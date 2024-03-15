@@ -112,5 +112,6 @@ void CommandParser::help() {
 
 void CommandParser::printIntroductoryDialogue(){
     cout << "\nYou wake up in a trashed hotel room with zero recollection of how you got there. As you realize that all of your belongings are gone, it dawns upon you that you have been abducted! There is no immediate sign of the perpetrator, but you start to feel anxious and dizzy. There's only so much time- find your way out!" << endl;
-    cout << "\n[!] Enter 'help' for a list of commands.\n" << endl;
+    player->printSteps();
+    cout << "[!] Enter 'help' for a list of commands.\n" << endl;
 }

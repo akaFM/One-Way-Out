@@ -184,7 +184,7 @@ void Map::moveDirection(const std::string direction){
                 printCurrentRoomInfo();
             }
     } else { // if the requested room does not exist
-        std::cout << "\nYou cannot go that way!\n" << std::endl;
+        std::cout << "\nYou walked into the wall!\n" << std::endl;
     }
 
     // note: tempRoomPointer ceases to exist upon function exit, but whatever is is pointing to will NOT be deleted. 

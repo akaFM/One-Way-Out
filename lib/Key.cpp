@@ -13,7 +13,7 @@ using namespace std;
         k.setDescription("Can be used to open a door");
     }
 
-    Key::Key(string name, string description, string condition) : condition("Great condition. Key Works!")
+    Key::Key(string condition, string name, string description) : condition("Great condition. Key Works!")
     {
         Key k;
         k.setName(name);

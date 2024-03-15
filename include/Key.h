@@ -12,7 +12,7 @@ class Key : public Items{
     
     //constructors
         Key(); 
-        Key(string name, string description, string condition);
+        Key(string condition, string name, string description);
 
     //setter
         void setCondition(string c);

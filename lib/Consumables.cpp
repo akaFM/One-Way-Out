@@ -14,7 +14,7 @@ using namespace std;
         c.setDescription("");
     }
 
-    Consumables::Consumables(string name, string description, int cHP) : changeHP(cHP)
+    Consumables::Consumables(int cHP, string name, string description) : changeHP(cHP)
     {
         Consumables c; 
         c.setName(name);

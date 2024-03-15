@@ -13,7 +13,7 @@ using namespace std;
         w.setDescription("");
     }
 
-    Weapon::Weapon(string name, string description, int dmg) : damage(dmg)
+    Weapon::Weapon(int dmg, string name, string description) : damage(dmg)
     {
         Weapon w; 
         w.setName(name);

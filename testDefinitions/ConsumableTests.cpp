@@ -13,7 +13,7 @@ TEST(ConsumableTest, ConstructorTest1){
 }
 
 TEST(ConsumableTest, ConstructorTest2){
-    Consumables apple("apple", "Heals", 100); 
+    Consumables apple(100, "apple", "Heals"); 
     EXPECT_EQ(apple.getChangeHP(), 100);
     EXPECT_EQ(apple.getName(), "apple");
     EXPECT_EQ(apple.getDescription(), "Heals");

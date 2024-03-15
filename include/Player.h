@@ -31,6 +31,10 @@ class Player {
             isGameOver = true; 
         }
 
+        void printSteps(){
+            cout << "\n" << stepsRemaining << " steps remaining.\n" << endl;
+        }
+
         //Health Attributes
         int getHealth();
         void setHealth(int hp);

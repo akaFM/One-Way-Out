@@ -1,13 +1,23 @@
 #include "CommandParser.h"
 #include <iostream>
+using namespace std;
 
 CommandParser::CommandParser(Map* map, Player* player) : map(map), player(player) {}
+
+string CommandParser::toLower(const string& str) {
+    string lowerStr = str;
+    for (char& c : lowerStr) {
+        c = std::tolower(static_cast<unsigned char>(c));
+    }
+    return lowerStr;
+}
 
 void CommandParser::runGame() {
     string userInput;
     while (true) {
         cout << "Enter your command: ";
         getline(cin, userInput);
+        userInput = toLower(userInput);
         if (userInput == "exit") {
             break; 
         }

@@ -4,10 +4,11 @@
 #include "Map.h"
 #include "Player.h"
 #include <string>
-
+using namespace std;
 class CommandParser {
 public:
     CommandParser(Map*, Player*);
+    std::string toLower(const std::string& str);
     void runGame();
     std::string getFirstWord(const std::string& input);
     std::string getRestOfWord(const std::string& input);

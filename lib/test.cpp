@@ -52,11 +52,21 @@ void executeCommand(string command, string parameter) {
         cout << "Unknown command. Type 'help' for the list of avaliable commands." << endl;
     }
 }
+
+string toLower(const string& str) {
+    string lowerStr = str;
+    for (char& c : lowerStr) {
+        c = tolower(static_cast<unsigned char>(c));
+    }
+    return lowerStr;
+}
+
 void runGame() {
     string userInput;
     while (true) {
         cout << "Enter your command: ";
         getline(cin, userInput);
+        userInput = toLower(userInput);
         if (userInput == "exit") {
             break; 
         }
@@ -87,6 +97,7 @@ void assignCommandAndParameter(const string& uInput, string& command, string& pa
     return;
 
 }
+
 
 
 
@@ -121,6 +132,8 @@ int main() {
     string parameter4 = "gun";
     assignCommandAndParameter(userInput4,command4,parameter4);
     cout << "assignCommandAndParameter -> " << "command: " << command4 << " parameter: " << parameter4 <<  endl;
+
+    cout << "ToLower: " << toLower(userInput) << endl;
 
     cout << "Command: " << command << endl;
     cout << "Parameter: " << parameter << endl;

@@ -3,16 +3,16 @@ project(FinalProjectItemsTest)
 
 ADD_SUBDIRECTORY(googletest)
 
-ADD_EXECUTABLE(test
+ADD_EXECUTABLE(unitTest
     lib/Items.cpp
-    # lib/Consumables.cpp
-    # lib/Weapon.cpp
-    # lib/Key.cpp
+    lib/Consumables.cpp
+    lib/Weapon.cpp
+    lib/Key.cpp
     test/ItemTests.cpp
-    #test/ConsumableTests.cpp
-    # test/WeaponTests.cpp 
-    # test/KeyTests.cpp
+    test/ConsumableTests.cpp
+    test/WeaponTests.cpp 
+    test/KeyTests.cpp
 )
 
-TARGET_LINK_LIBRARIES(test gtest gtest_main)
-TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
+TARGET_LINK_LIBRARIES(unitTest gtest gtest_main)
+TARGET_COMPILE_DEFINITIONS(unitTest PRIVATE gtest_disable_pthreads=ON)

@@ -45,5 +45,5 @@ TARGET_LINK_LIBRARIES(runPlayerTests gtest gtest_main)
 TARGET_COMPILE_DEFINITIONS(runPlayerTests PRIVATE gtest_disable_pthreads=ON)
 
 
-TARGET_LINK_LIBRARIES(runItemTest gtest gtest_main)
-TARGET_COMPILE_DEFINITIONS(runItemTest PRIVATE gtest_disable_pthreads=ON)
+TARGET_LINK_LIBRARIES(runItemTests gtest gtest_main)
+TARGET_COMPILE_DEFINITIONS(runItemTests PRIVATE gtest_disable_pthreads=ON)

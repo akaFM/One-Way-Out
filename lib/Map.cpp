@@ -25,7 +25,7 @@ void Map::initializeGameMap(){
 
     // ROOM INVENTORY INITIALIZATION
     vector<Items> roomOneInventory;
-        Items note("note", "A note that reads the following: 'Did you know you can just use the first letter of a command instead of typing the whole command out? Additionally, instead of using the 'go' command, just state your direction! Maybe this will save you some time... you definitely need it.'\nWay to break the fourth wall, you think to yourself...\n", 0);
+        Items note("note", "A note that reads the following: 'Did you know you can just use the first letter of a command instead of typing the whole command out? Additionally, instead of using the 'go' command, just state your direction! Maybe this will save you some time... you definitely need it.'\nWay to break the fourth wall, you think to yourself...\n");
         roomOneInventory.push_back(note);
 
 

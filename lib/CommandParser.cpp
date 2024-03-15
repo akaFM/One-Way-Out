@@ -86,6 +86,9 @@ void CommandParser::executeCommand(string command, string parameter) {
     else if (command == "steps" || command == "s"){
         player->printSteps();
     }
+    else if (command == "quit" || command == "q") {
+        player->endGame();
+    } 
     else if (command == "help" || command == "h") {
         help();
     } 
@@ -103,7 +106,8 @@ void CommandParser::help() {
     cout << "Take [Item] -> Take an item from a room, if it exists." << endl;
     cout << "Drop [Item] -> Drop an item into a room, if you possess it." << endl;
     cout << "Examine [Item] -> View the name and description of an item, if you possess it." << endl;
-    cout << "Use [Item] -> Use an item that exists in your inventory.\n" << endl;
+    cout << "Use [Item] -> Use an item that exists in your inventory." << endl;
+    cout << "Quit -> End the game.\n" << endl;
 }
 
 void CommandParser::printIntroductoryDialogue(){

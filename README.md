@@ -102,7 +102,7 @@
 > 
 > 
  ## Installation/Usage
- > * First, make a local clone of the repository using ssh, and make sure you 'git pull' so that all necessary/up-to-date files are included.
+>  * First, make a local clone of the repository using ssh, and make sure you 'git pull' so that all necessary/up-to-date files are included.
 >  * Compile the build using the following commands: $ cmake .  $ make
 >  * When you compile using CMake and not manually, the test executables will automatically compile alongside the main executable. Because of this, you need to ensure that the gtest submodule is functional. If you receive errors relating to gtest, please run the following command: $ git submodule update --init --recursive. This will ensure that your local copy has successfully cloned the gtest submodule.
 >  * Run whichever executable you want to use- "./mainEXE" will start the game.
@@ -110,5 +110,8 @@
 > 
  ## Testing
 > * First and foremost, we tested the program for memory leaks using valgrind. As you can see in [this](https://cdn.discordapp.com/attachments/1208154094460604427/1218169313651986505/image.png?ex=6606af94&is=65f43a94&hm=4c25657fbfc39f22a94be1361e5c08cecea6a4a43e2f1b510b60e429ee3110d6&) attachment, we were able to optimize the program to the extent where it's memory-leak free. An example of a problem that this type of testing solved can be seen in pull request #77. 
-> * For unit tests, we used the googletest submodule. [This]() is a snapshot of some of our unit tests. Much of the tests were for somewhat expected inputs, since very little of the functions in our program take direct user input. As we expand in another sprint, one of our objectives is to use the dictation of our unit tests restructure bulky functions and classes.
- 
+> * For unit tests, we used the googletest submodule. [This](https://media.discordapp.net/attachments/1208154094460604427/1218292178464538635/image.png?ex=66072202&is=65f4ad02&hm=35e937de3a7aad756ef8260ec2d0287811454606f09e7afa8b765ef23f7ea370&=&format=webp&quality=lossless&width=761&height=701) and [this](https://media.discordapp.net/attachments/1208154094460604427/1218294581532033114/image.png?ex=6607243f&is=65f4af3f&hm=56bfcae88c311e67ac980a5cee848e1fb138947c2a6f48352c6b2518525e27c4&=&format=webp&quality=lossless&width=414&height=701) are snapshots of some of our unit test outputs. Much of the tests were for somewhat expected inputs, since very little of the functions in our program take direct user input. As we expand in another sprint, one of our objectives is to use the dictation of our unit tests restructure bulky functions and classes.
+>
+ ## Additional Notes
+> * The program's class diagram has been fully updated to match code changes. You can see the whole history in the "Phase III" section.
+> * Plans for a future sprint, which includes subclasses we didn't get to, are in the "TODO" section of our project board.

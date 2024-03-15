@@ -6,7 +6,7 @@
 
 TEST(KeyTest, ConstructorTest){
     Key flash;
-    EXPECT_EQ(flash.getCondition(), "Great Condition. Key Works!");
+    EXPECT_EQ(flash.getCondition(), "Great condition. Key Works!");
 }
 
 TEST(KeyTest, SetterTest){

@@ -25,7 +25,7 @@ TEST(ItemsTest, SetterFunctionTests1){
     a.setDescription("Restores HP to full");
     a.setType(1);
     EXPECT_EQ(a.getName(), "Apple");
-    EXPECT_EQ(a.getDescription(), "Restores HP to ful");
+    EXPECT_EQ(a.getDescription(), "Restores HP to full");
     EXPECT_EQ(a.getType(), 1);   
 }
 
@@ -72,5 +72,5 @@ TEST(ItemsTest, itemExistsTest2){
 TEST(ItemsTest, deleteTest){
     Items a("Axe", "Dull axe. Ok for Chopping", 2);
     a.deleteItem();
-    EXPECT_EQ(a.itemExists(), 1);
+    EXPECT_EQ(a.itemExists(), 0);
 }

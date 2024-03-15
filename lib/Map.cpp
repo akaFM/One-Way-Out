@@ -1,6 +1,7 @@
 #include "../include/Map.h"
 #include "../include/Room.h"
 #include "../include/Items.h"
+#include "../include/Enemy.h"
 #include <string>
 #include <iostream>
 #include <vector>
@@ -26,6 +27,7 @@ void Map::initializeGameMap(){
         roomOneInventory.push_back(testItem);
 
 
+    Enemy *enemy1 = new Enemy(1);
     // ROOM INITIALIZATION
     gameMap[3][3] = new Room("1name", "1desc", false, roomOneInventory); // this is the spawn room
     gameMap[2][3] = new Room("2name", "2desc", false); 
@@ -33,6 +35,7 @@ void Map::initializeGameMap(){
     gameMap[2][1] = new Room("4name", "4desc", false);
     gameMap[2][0] = new Room("5name", "5desc", false);
     gameMap[3][1] = new Room("6name", "6desc", false);
+    gameMap[3][1]->add
     gameMap[1][0] = new Room("7name", "7desc", false);
     gameMap[1][2] = new Room("8name", "8desc", false);
     gameMap[0][2] = new Room("9name", "9desc", false);

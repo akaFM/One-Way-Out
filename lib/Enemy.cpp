@@ -7,6 +7,10 @@ Enemy::Enemy(string name, int health, int damage, string weakness){
     this->weakness = weakness;
 }
 
+Enemy::Enemy(int health){
+    this->health = health;
+}
+
 void Enemy::subtractHealth(int damageEnemy, string weak){
     if(weak == weakness){
         damageEnemy *= 1.5;
@@ -25,4 +29,11 @@ void Enemy::setWeakness(string weak){
 
 void Enemy::damageEnemy(int dam){
     health -= dam;
+}
+
+int Enemy::getEnemyHealth(){
+    return health;
+}
+int Enemy::getEnemyDamage(){
+    return damage;
 }

@@ -17,11 +17,14 @@ class Enemy {
 
     public:
         Enemy() : name(""), health(0), damage(0), weakness(""){}
+        Enemy(int);
         Enemy(string, int, int, string);
         void subtractHealth(int, string);
         int damagePlayer();
         void setWeakness(string);
         void damageEnemy(int);
+        int getEnemyHealth();
+        int getEnemyDamage();
 
 
 

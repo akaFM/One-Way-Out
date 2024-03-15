@@ -1,7 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
 project(FinalProjectItemsTest)
 
-ADD_SUBDIRECTORY(googletest)
 
 ADD_EXECUTABLE(mainEXE
 lib/CommandParser.cpp

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include "../include/Items.h"
+#include "../include/Enemy.h"
 
 using namespace std;
 

@@ -86,25 +86,18 @@
 >
 > * And finally, we used the **Dependency Inversion Principle** in our class diagram by implementing the functions "printRoomName" and "printRoomDescription" as members of the "Map" class. Initially, the "CommandParser" class was expected to call the member functions of the "Room" class (a lower-level module) in order to indicate, in dialogue, the name and description of the user's current position. However, this task was allocated to the Map class such that the CommandParser class no longer has to access anything relating to the Room class at all. This change is a part of the **Dependency Inversion Principle** because it, by nature, relies on the abstraction of the Map class in order to relay appropriate information to the highest-level module. Before, the CommandParser class would have to call the "getName" function of Room and print it, but all of that is automatically completed now by simply calling "printRoomName" in the Map class.
  
- > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
- 
  ## Screenshots
  > Screenshots of the input/output after running your application
 > 
-> * [This](https://cdn.discordapp.com/attachments/894457667878256670/1218257676753043476/image.png?ex=660701e0&is=65f48ce0&hm=1a9691a287dc9768e7c857f2e3922c5b43c1f6988a08c3a762be55f4e0abb06d&) Screenshot in the beginning of the game. Shows the title screen and difficulty option
+> * [Here](https://cdn.discordapp.com/attachments/894457667878256670/1218257676753043476/image.png?ex=660701e0&is=65f48ce0&hm=1a9691a287dc9768e7c857f2e3922c5b43c1f6988a08c3a762be55f4e0abb06d&) is a picture of the introductory screen, which displays the title and specific difficulties.
 > 
-> * [This](https://cdn.discordapp.com/attachments/894457667878256670/1218257773632946206/image.png?ex=660701f7&is=65f48cf7&hm=d0171b0ce7ea8eea71c50089294b492874e313fc49b72a3740cca0cf02894c27&) Screenshot of the command menu. Shows all the available command inputs you can do
+> * [Here](https://cdn.discordapp.com/attachments/894457667878256670/1218257773632946206/image.png?ex=660701f7&is=65f48cf7&hm=d0171b0ce7ea8eea71c50089294b492874e313fc49b72a3740cca0cf02894c27&) is a picture of the command menu, which displays the game's available commands.
 > 
-> * [This](https://cdn.discordapp.com/attachments/894457667878256670/1218258530927120404/image.png?ex=660702ab&is=65f48dab&hm=8e1a30f5b940c26e13131a3b194334041cd625c2e2be3ac048f9e8cc58f46ee1&) Screenshot of picking up and examining item.
+> * [Here](https://cdn.discordapp.com/attachments/894457667878256670/1218258530927120404/image.png?ex=660702ab&is=65f48dab&hm=8e1a30f5b940c26e13131a3b194334041cd625c2e2be3ac048f9e8cc58f46ee1&) is what it looks like to pick up and examine in item, in addition to the error prompt for misspells.
 >
-> * [This](https://cdn.discordapp.com/attachments/894457667878256670/1218272012749766766/image.png?ex=66070f3a&is=65f49a3a&hm=0b05a4764a582da31f1cfb6af7177ccfada553617148e67e1371523a56e72612&) Screenshot of the Examine and Use command. The Use command allows the crafting of an Item paperclip into a lockpick, which allows the player to unlock a room
+> * [Here](https://cdn.discordapp.com/attachments/894457667878256670/1218272012749766766/image.png?ex=66070f3a&is=65f49a3a&hm=0b05a4764a582da31f1cfb6af7177ccfada553617148e67e1371523a56e72612&) is a screenshot of the "examine" and "use" commands. The "use" command allows the crafting of a paperclip and a bobby pin into a lockpick, which can then be used to unlock a room.
 > 
-> * [This](https://cdn.discordapp.com/attachments/894457667878256670/1218261348946022521/image.png?ex=6607054b&is=65f4904b&hm=f224e43c60a7b7c43d4c225e9221520fae70b7fad39f2b43db60ce4b4d23b962&) Screenshot of Game over screen after reaching the maximum amount of steps
+> * [Here](https://cdn.discordapp.com/attachments/894457667878256670/1218261348946022521/image.png?ex=6607054b&is=65f4904b&hm=f224e43c60a7b7c43d4c225e9221520fae70b7fad39f2b43db60ce4b4d23b962&) is what it looks like to lose the game after taking too many steps.
 > 
 > 
  ## Installation/Usage

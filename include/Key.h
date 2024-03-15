@@ -6,19 +6,19 @@
 class Key : public Items{
 
     private:
-        string condition;
+        string nameOfRoomOpened;
 
     public:
     
     //constructors
         Key(); 
-        Key(string condition, string name, string description);
+        Key(string nameOfRoomOpened, string name, string description);
 
     //setter
-        void setCondition(string c);
+        void setNameOfRoomOpened(string n);
 
     //getter
-        string getCondition();
+        string getNameOfRoomOpened();
 
 };
 

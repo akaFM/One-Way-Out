@@ -42,6 +42,7 @@ void Player::deductSteps(int step) {
     stepsRemaining = stepsRemaining - step;
 }
 
+
 const int Player::hasItem(string itemName) {
     
     for (unsigned int j = 0; j < inventory.size(); ++j) {
@@ -51,6 +52,10 @@ const int Player::hasItem(string itemName) {
     }
     return -1;
 
+}
+
+const bool Player::isInventoryEmpty() {
+    return inventory.empty();
 }
 
 void Player::deductItemFromInventory(const string itemName, Room* currRoom) {

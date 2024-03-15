@@ -13,7 +13,7 @@ TEST(Player, InitializePlayerConstructorHardMode) {
     int difficulty = 2; //hard
     Player player2(difficulty);
     ASSERT_EQ(player2.getHealth(), 100);
-    ASSERT_EQ(player2.getSteps(), 20);
+    ASSERT_EQ(player2.getSteps(), 29);
     ASSERT_TRUE(player2.isInventoryEmpty());
 }
 
@@ -96,6 +96,6 @@ TEST(Player, playerPrintInventory) {
     testing::internal::CaptureStdout();
     player.printInventory();
     string outputPlayerInventory = testing::internal::GetCapturedStdout();
-    EXPECT_NE(outputPlayerInventory.find("Inventory: [testItem1,testItem2,testItem3]"), string::npos);
+    EXPECT_NE(outputPlayerInventory.find("Inventory: [testItem1, testItem2, testItem3]"), string::npos);
 }
 

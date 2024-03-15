@@ -103,7 +103,8 @@
 > 
  ## Installation/Usage
  > * First, make a local clone of the repository using ssh, and make sure you 'git pull' so that all necessary files are included.
->  * If you are going to compile using CMake and not manually, the test executables will automatically compile alongside the main executable. Because of this, you need to ensure that the gtest submodule is functional. If you receive errors relating to gtest, please run the following command: $ git submodule update --init --recursive. This will ensure that your local copy has successfully cloned the gtest submodule.
+>  * Compile the build using the following commands: $ cmake .  $ make
+>  * When you compile using CMake and not manually, the test executables will automatically compile alongside the main executable. Because of this, you need to ensure that the gtest submodule is functional. If you receive errors relating to gtest, please run the following command: $ git submodule update --init --recursive. This will ensure that your local copy has successfully cloned the gtest submodule.
 >  * Run whichever executable you want to use- "./mainEXE" will start the game.
 >  * All instructions on how to play the game will be printed in the console thereafter.
  ## Testing

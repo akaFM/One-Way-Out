@@ -29,18 +29,19 @@ lib/Room.cpp
 lib/Weapon.cpp
 )
 
-ADD_EXECUTABLE(unitItemTest
+ADD_EXECUTABLE(runItemTests
     lib/Items.cpp
     lib/Consumables.cpp
     lib/Weapon.cpp
     lib/Key.cpp
-    test/ItemTests.cpp
-    test/ConsumableTests.cpp
-    test/WeaponTests.cpp 
-    test/KeyTests.cpp
+    testDefinitions/ItemTests.cpp
+    testDefinitions/ConsumableTests.cpp
+    testDefinitions/WeaponTests.cpp 
+    testDefinitions/KeyTests.cpp
 )
 
+TARGET_LINK_LIBRARIES(runPlayerTests gtest gtest_main)
+TARGET_COMPILE_DEFINITIONS(runPlayerTests PRIVATE gtest_disable_pthreads=ON)
 
-
-TARGET_LINK_LIBRARIES(runPlayerTests unitItemTest gtest gtest_main)
-TARGET_COMPILE_DEFINITIONS(runPlayerTests unitItemTest PRIVATE gtest_disable_pthreads=ON)
+TARGET_LINK_LIBRARIES(runItemTests gtest gtest_main)
+TARGET_COMPILE_DEFINITIONS(runItemTests PRIVATE gtest_disable_pthreads=ON)

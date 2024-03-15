@@ -1,6 +1,9 @@
-#exes
+#main
 mainEXE
+
+#tests
 runPlayerTests
+runItemTests
 
 #cmake junk
 Makefile

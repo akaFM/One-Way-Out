@@ -114,11 +114,11 @@ void Map::moveDirection(const std::string direction){
                 std::cout << "\nThat room is locked!\n" << std::endl;
             } else { // if the requested room exists, and is unlocked -> SUCCESS CASE
                 playerPosition = tempRoomPointer;
-                std::cout << "\nYou moved " << direction << ".\n" << std::endl;
+                std::cout << "\nYou moved " << direction << "." << std::endl;
+                printCurrentRoomInfo();
             }
     } else { // if the requested room does not exist
         std::cout << "\nYou cannot go that way!\n" << std::endl;
-        printCurrentRoomInfo();
     }
 
     // note: tempRoomPointer ceases to exist upon function exit, but whatever is is pointing to will NOT be deleted. 
@@ -127,6 +127,6 @@ void Map::moveDirection(const std::string direction){
 
 void Map::printCurrentRoomInfo(){
     std::cout << "\n" << playerPosition->getName() << std::endl;
-    std::cout << playerPosition->getDescription() << std::endl;
+    std::cout << playerPosition->getDescription();
     playerPosition->printRoomInventory();
 }

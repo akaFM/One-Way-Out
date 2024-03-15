@@ -13,6 +13,7 @@ public:
     void assignCommandAndParameter(const string& uInput, string& command, string& param);
     void executeCommand(std::string m, std::string p);
     void help();
+    void printIntroductoryDialogue();
 
 private:
     Map* map;

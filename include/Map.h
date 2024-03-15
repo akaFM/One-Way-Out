@@ -10,6 +10,7 @@ class Map {
         Room * playerPosition; 
     public:
         Map();
+        ~Map(); //destructor to deallocate new room objects created in initializeGameMap()
         void initializeGameMap();
         Room * getPlayerPosition();
         void moveDirection(const std::string direction);

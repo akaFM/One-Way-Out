@@ -83,7 +83,7 @@ void Player::deductItemFromInventory(const string itemName, Room* currRoom) {
     // otherwise...
     currRoom->addItemToRoom(inventory.at(itemIndex)); // add item to room inventory
     inventory.erase(inventory.begin() + itemIndex); // remove item from inventory
-    cout << "\n You dropped the " << itemName << ".\n" << endl; // dialogue prompt
+    cout << "\nYou dropped the " << itemName << ".\n" << endl; // dialogue prompt
 
 }
 

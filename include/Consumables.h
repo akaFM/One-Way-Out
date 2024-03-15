@@ -2,6 +2,7 @@
 #define CONSUMABLES_H
 
 #include "../include/Items.h"
+#include <string>
 
 class Consumables : public Items{
 

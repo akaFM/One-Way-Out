@@ -11,7 +11,7 @@ Player::Player(int difficulty){
     if (difficulty == 1) { //case easy
         // placeholder
         health = 100;
-        stepsRemaining = 34;
+        stepsRemaining = 40;
     } 
     else if (difficulty == 2) { //case hard
         // placeholder
@@ -140,8 +140,10 @@ void Player::printInventory(){
 void Player::findAndUseItem(const string itemName, Room * currentPlayerPosition){
     const int itemLocation = hasItem(itemName);
     if(itemLocation != -1){
+
         useItem(inventory.at(itemLocation), currentPlayerPosition);
         return;
+
     }
     cout << "\nYou don't have that!\n" << endl;
 }

@@ -62,7 +62,7 @@ void CommandParser::executeCommand(string command, string parameter) {
     } 
     else if (command == "use" || command == "u") {
         player->findAndUseItem(parameter, map->getPlayerPosition());
-    } 
+    }
     else if (command == "north" || command == "south" || command == "west" || command == "east") {
         map->moveDirection(command);
         player->deductSteps(1);

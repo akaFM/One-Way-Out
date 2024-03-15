@@ -25,7 +25,6 @@ class Player {
             return isGameOver;
         }
         void endGame(){
-            cout << "YOU WIN!\nThank you for playing!\n" << endl;
             isGameOver = true; 
         }
 

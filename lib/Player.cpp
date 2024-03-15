@@ -166,6 +166,7 @@ void Player::useItem(Items itemToUse, Room * currentPlayerPosition){
     }
     else if(itemToUse.getName() == "crowbar" and currentPlayerPosition->getName() == "Main Lobby"){ //case: win the game!!
         cout << "\nYou pried open the hotel entrance and ran out, feeling the fresh air fill your lungs!\n" << endl;
+        cout << "YOU WIN!\nThank you for playing!\n" << endl;
         endGame();
     }
     else{

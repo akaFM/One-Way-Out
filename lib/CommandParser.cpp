@@ -62,12 +62,14 @@ void CommandParser::executeCommand(string command, string parameter) {
     } 
     else if (command == "use" || command == "u") {
         player->findAndUseItem(parameter, map->getPlayerPosition());
-    } 
+    }
     else if (command == "north" || command == "south" || command == "west" || command == "east") {
         map->moveDirection(command);
+        player->deductSteps(1);
     } 
-    else if (command == "go"){
+    else if (command == "go" || command == "g"){
         map->moveDirection(parameter);
+        player->deductSteps(1);
     }
     else if (command == "drop" || command == "d"){
         player->deductItemFromInventory(parameter, map->getPlayerPosition());
@@ -81,6 +83,9 @@ void CommandParser::executeCommand(string command, string parameter) {
     else if (command == "examine" || command == "e"){
         player->examineItem(parameter);
     }
+    else if (command == "steps" || command == "s"){
+        player->printSteps();
+    }
     else if (command == "help" || command == "h") {
         help();
     } 
@@ -93,6 +98,7 @@ void CommandParser::help() {
     cout << "\nCOMMANDS\n--------------------" << endl;
     cout << "Inventory -> Check your current inventory." << endl;
     cout << "Look -> View information about your current position." << endl;
+    cout << "Steps -> View how many steps left you have to beat the game." << endl;
     cout << "Go [Direction] -> Travel in a certain direction, if possible." << endl; 
     cout << "Take [Item] -> Take an item from a room, if it exists." << endl;
     cout << "Drop [Item] -> Drop an item into a room, if you possess it." << endl;

@@ -21,7 +21,7 @@ int main() {
     //loop to collect difficulty w/ input validation
     while(!valid){
 
-        cout << "\nSelect difficulty (1 for easy, 2 for hard): ";
+        cout << "\n1 -> Easy Mode: Meant for exploration.\n2 -> Hard Mode: Barely enough steps to beat the game.\nSelect Difficulty: ";
         if(cin >> difficulty){
 
             if(difficulty != 1 and difficulty != 2){ //case: invalid integer provided.

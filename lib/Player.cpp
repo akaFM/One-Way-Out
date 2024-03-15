@@ -11,12 +11,12 @@ Player::Player(int difficulty){
     if (difficulty == 1) { //case easy
         // placeholder
         health = 100;
-        stepsRemaining = 2;
+        stepsRemaining = 40;
     } 
     else if (difficulty == 2) { //case hard
         // placeholder
         health = 100;
-        stepsRemaining = 1;
+        stepsRemaining = 29;
     }
     else { //case invalid
         throw invalid_argument("Invalid difficulty");
@@ -42,6 +42,10 @@ int Player::getSteps() {
 
 void Player::deductSteps(int step) { 
     stepsRemaining = stepsRemaining - step;
+    if (stepsRemaining <= 0){
+        cout << "Your legs gave out and you collapsed onto the floor!\nGAME OVER!\n" << endl; 
+        endGame();
+    }
 }
 
 
@@ -136,8 +140,10 @@ void Player::printInventory(){
 void Player::findAndUseItem(const string itemName, Room * currentPlayerPosition){
     const int itemLocation = hasItem(itemName);
     if(itemLocation != -1){
+
         useItem(inventory.at(itemLocation), currentPlayerPosition);
         return;
+
     }
     cout << "\nYou don't have that!\n" << endl;
 }
